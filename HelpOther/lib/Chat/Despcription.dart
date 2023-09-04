@@ -22,22 +22,26 @@ class _DesProblemesState extends State<DesProblemes> {
     this.user = firebase_auth.FirebaseAuth.instance.currentUser;
   }
 
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFCFFFC),
       appBar: AppBar(
         backgroundColor: Color(0xFFFCFFFC),
         elevation: 0,
+        leading: IconButton( padding: EdgeInsets.only(left: 20),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
 
         title: Text('Les Infos',style: GoogleFonts.montserrat(color: Colors.black,),textAlign: TextAlign.center,),
         centerTitle: true,),
       body:Column(
         children: <Widget>[
-          Container( padding: EdgeInsets.only(top:100),
+          Container( padding: EdgeInsets.only(top:50),
             child: Text('Voici les infos de la demande !',style: GoogleFonts.breeSerif(
               color: Color(0xFF323131),
               fontWeight: FontWeight.bold,
@@ -47,7 +51,7 @@ class _DesProblemesState extends State<DesProblemes> {
             child: Divider(color: Colors.black,endIndent: 50,indent: 50,thickness: 1,),),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(16.0),
               child: _buildUserList(),
             ),
           ),
@@ -86,31 +90,49 @@ class _DesProblemesState extends State<DesProblemes> {
     if (_auth.currentUser!.email != data['email']) {
       return ListTile(
         subtitle: Column(
-          children: [ SizedBox(height: 10,),
+          children: [
             Row(
               children: [
 
-            Text('Chapitre :  ', style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 20),),
-            Text(data['chapitre'],
-              style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 20),),
+            Container(width: 150,padding: EdgeInsets.only(top: 10),
+                child: Text('- Chapitre :  ', style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),)),
+            Container( width: 150,padding: EdgeInsets.only(top: 50),
+              child: Text(data['chapitre'],
+                style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),textAlign: TextAlign.center,),
+            ),
           ], ),
             new Row(
               children: [
                 SizedBox(height: 10,),
-                Text('Problème :  ',style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 20),),
-                Text(data['demande'], style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 20)),
+                Container( padding: EdgeInsets.only(top: 10), width: 150,
+                    child: Text('- Problème :  ',style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),)),
+                Container( padding: EdgeInsets.only(top:50), width: 150,
+                    child: Text(data['demande'], style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25))),
 
               ],
+            ),
+            new Row(
+              children: [
+                Container( padding: EdgeInsets.only(top: 50), width: 150,
+                    child: Text('- Jour :  ',style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),)),
+                Container( padding: EdgeInsets.only(top:50), width: 150,
+                    child: Text(data['jour'], style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25))),
+              ],
+
             )
           ],
         ),
         title: Column(
-          children: [SizedBox(height: 100,),
+          children: [
             Row( children : [
-            Text('Matiere :  ', style: GoogleFonts.breeSerif(
-                color: Colors.black, fontSize: 20)),
-            Container(child: Text(data['Matière'], style: GoogleFonts.breeSerif(
-                color: Colors.black, fontSize: 20),)),],),
+            Container( padding: EdgeInsets.only(top: 10), width: 150,
+              child: Text(
+                  '- Matière :  ', style: GoogleFonts.breeSerif(
+                  color: Colors.black, fontSize: 25)),
+            ),
+            Container( padding: EdgeInsets.only(top:50), width: 150,
+                child: Text(data['Matière'], style: GoogleFonts.breeSerif(
+                color: Colors.black, fontSize: 25),)),],),
           ],
         ),
 

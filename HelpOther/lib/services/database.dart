@@ -10,8 +10,12 @@ class DatabaseService {
   final CollectionReference<Map<String, dynamic>> userCollection =
   FirebaseFirestore.instance.collection("users");
 
-  Future<void> saveUser(String Name, String email) async {
-    return await userCollection.doc(uid).set({'Name': Name, 'email': email,'uid1': uid});
+  Future<void> saveUser(String name, String email) async {
+    return await userCollection.doc(uid).set({'name': name, 'email': email});
+  }
+
+  Future<void> saveToken(String? token) async {
+    return await userCollection.doc(uid).update({'token': token});
   }
 
   AppUserData _userFromSnapshot(DocumentSnapshot<Map<String, dynamic>> snapshot) {
@@ -19,9 +23,9 @@ class DatabaseService {
     if (data == null) throw Exception("user not found");
     return AppUserData(
       uid: snapshot.id,
-      uid1: data['uid'],
       Name: data['name'],
-      email: data['email'],
+      uid1: uid,
+      email: data['email']
     );
   }
 

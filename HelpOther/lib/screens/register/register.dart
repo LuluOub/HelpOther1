@@ -158,7 +158,7 @@ class RegisterScreenState extends State<RegisterScreen> {
 
               Container( padding: EdgeInsets.only(top: 20),
                 child: Row (mainAxisAlignment: MainAxisAlignment.spaceEvenly,children : [
-                    ElevatedButton(onPressed:() async {await _auth.signInWithGoogle();},style: ElevatedButton.styleFrom(elevation: 3,fixedSize: Size(74, 68),backgroundColor:  Color(0xFFFCFFFC),shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),side: const BorderSide(color: Color(0xFF387CFF),width: 2),), child: Image(image: AssetImage("images/google.png"),),),
+                    ElevatedButton(onPressed:() {},style: ElevatedButton.styleFrom(elevation: 3,fixedSize: Size(74, 68),backgroundColor:  Color(0xFFFCFFFC),shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),side: const BorderSide(color: Color(0xFF387CFF),width: 2),), child: Image(image: AssetImage("images/google.png"),),),
         ElevatedButton(onPressed:() {},style: ElevatedButton.styleFrom(elevation: 3,fixedSize: Size(74, 68),backgroundColor: const Color(0xFFFCFFFC),shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),side:  BorderSide(color: Color(0xFF387CFF),width: 2),), child:  Image(image: AssetImage("images/apple.png"),color: Colors.black),),
         ElevatedButton(onPressed:() {},style: ElevatedButton.styleFrom(elevation: 3,fixedSize: Size(74, 68),backgroundColor: const Color(0xFFFCFFFC),shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),side:  BorderSide(color: Color(0xFF387CFF),width: 2),), child:  Image(image: AssetImage("images/facebook.png"),color: Colors.black),),
         ElevatedButton(onPressed:() {},style: ElevatedButton.styleFrom(elevation: 3,fixedSize: Size(74, 68),backgroundColor: const Color(0xFFFCFFFC),shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),side:  BorderSide(color: Color(0xFF387CFF),width: 2),), child:  Image(image: AssetImage("images/user.png"),color: Colors.black),),
@@ -194,8 +194,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                       var email = emailController.value.text;
                       var password = passwordController.value.text;
 
-                      dynamic result;
-                      await _auth.registerWithEmailAndPassword(Name,email,password);
+                      dynamic result = await _auth.registerWithEmailAndPassword(Name,email,password);
                       Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionScreen()));
                       if (result == false) {
                         setState(() {

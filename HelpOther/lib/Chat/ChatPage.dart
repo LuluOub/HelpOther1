@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:colorize_text_avatar/colorize_text_avatar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,8 +27,6 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController _messageController = TextEditingController();
   final ChatService _chatService = ChatService();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
 
 
   void sendMessage() async {
@@ -44,7 +44,14 @@ class _ChatPageState extends State<ChatPage> {
 
 
   }
+  firebase_auth.User? user;
 
+
+  @override
+  void initState() {
+    super.initState();
+    this.user = firebase_auth.FirebaseAuth.instance.currentUser;
+  }
 
 
 
@@ -205,10 +212,41 @@ hintStyle: GoogleFonts.montserrat(color: Colors.black),
               : MainAxisAlignment.start,
 
           children: [
-            Text(data['senderName'],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 14,fontWeight: FontWeight.bold),),
+                Row(
+                  crossAxisAlignment:
+                (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
+                  mainAxisAlignment:
+                  (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.start,
+
+                  children: [
+                    Container(
+
+                      padding: EdgeInsets.only(right: 10),
+                      child: TextAvatar(
+                        shape: Shape.Circular,
+                        size: 10,
+                        textColor: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        upperCase: true,
+                        backgroundColor: Colors.blue,
+                        numberLetters: 1,
+                        text: "${user!.displayName}",
+                      ),
+                    ),
+
+                Container(
+                    child: Text(data['senderName'],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),)),
+                  ],
+        ),
             SizedBox(height: 5,),
             ChatBubble(message :data['message']),
-          ],
+    ]
+
         ),
       ),
     );

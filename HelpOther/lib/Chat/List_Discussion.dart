@@ -21,7 +21,33 @@ class _List_DiscussionState extends State<List_Discussion> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: _buildDiscList(),
+        body:
+        Column(
+          children: <Widget>[
+            Container( padding: EdgeInsets.only(top:100),
+              child: Text('Voici toutes tes discussions !',style: GoogleFonts.breeSerif(
+                color: Color(0xFF323131),
+                fontWeight: FontWeight.bold,
+                fontSize: 35,
+              ), textAlign: TextAlign.center,),),
+            Container( padding: EdgeInsets.only(top:10),
+              child: Text('continue-les !',style: GoogleFonts.breeSerif(
+                color: Color(0xFF323131),
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ), textAlign: TextAlign.center,),),
+
+            Container( padding: EdgeInsets.only(top: 10 ),
+              child: Divider(color: Colors.black,endIndent: 50,indent: 50,thickness: 1,),),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: _buildDiscList(),
+              ),
+            ),
+          ],
+
+        )
     );
   }
 

@@ -17,14 +17,5 @@ class AppUserData {
 
 }
 
-class Demande{
-  final String uid;
-  final String name;
-  final String email;
-  final String demande;
-  final String chapitre;
 
-  Demande({required this.uid, required this.name, required this.email, required this.chapitre, required this.demande});
-
-}
 
