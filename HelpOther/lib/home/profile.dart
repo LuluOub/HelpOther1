@@ -8,7 +8,6 @@ import 'package:helpother/profile/Reglages.dart';
 import 'package:helpother/profile/compte.dart';
 import '../profile/Avis.dart';
 
-import '../services/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 
@@ -36,7 +35,6 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
        this.user = firebase_auth.FirebaseAuth.instance.currentUser;
      }
 
-     final AuthenticationService _auth = AuthenticationService();
 
 
      return Scaffold(
@@ -93,7 +91,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    foregroundColor: Colors.black,
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0),
-                     side: BorderSide(color: Color(0xFF387CFF)),
+                     side: BorderSide(color: Color(0xFF2541B2)),
                    ),
                  ),
                ),
@@ -125,7 +123,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    foregroundColor: Colors.black,
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0),
-                     side: BorderSide(color: Color(0xFF387CFF)),
+                     side: BorderSide(color: Color(0xFF2541B2)),
                    ),
                  ),
                ),
@@ -157,7 +155,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    foregroundColor: Colors.black,
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0),
-                     side: BorderSide(color: Color(0xFF387CFF)),
+                     side: BorderSide(color: Color(0xFF2541B2)),
                    ),
                  ),
                ),
@@ -188,7 +186,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                        foregroundColor: Colors.black,
                        shape: RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(10.0),
-                         side: BorderSide(color: Color(0xFF387CFF)),
+                         side: BorderSide(color: Color(0xFF2541B2)),
                        ),
                      ),
                    ),
@@ -219,7 +217,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                        foregroundColor: Colors.black,
                        shape: RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(10.0),
-                         side: BorderSide(color: Color(0xFF387CFF)),
+                         side: BorderSide(color: Color(0xFF2541B2)),
                        ),
                      ),
                    ),

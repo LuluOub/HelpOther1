@@ -170,9 +170,13 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
                 ),],),
             ),),
 
-          Container( padding: EdgeInsets.only(top: 20)  ,
-            child: Row (mainAxisAlignment: MainAxisAlignment.spaceEvenly,children : [
-              ElevatedButton(onPressed:() async {
+          Container(
+            margin: EdgeInsets.only(bottom: 30,top: 30),
+            height: 70,
+            width: 159,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomRight,colors: [Color(0xFF3EC7FD),Color(0xFF0026FF),]),borderRadius: BorderRadius.circular(15)),
+            child: ElevatedButton(onPressed:() async {
                 if (_formKey.currentState?.validate() == true) {
                   setState(() => loading = true);
                   var email = emailController.value.text;
@@ -183,12 +187,12 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
                     setState(() {
                       loading = false;
                       error = 'Rentrez une adresse valide !';});}}},
-                style: ElevatedButton.styleFrom(elevation: 3,fixedSize: Size(159, 69),
-                  backgroundColor:Color(0xFF387CFF),
+
+              style: ElevatedButton.styleFrom(
+                  backgroundColor:Colors.transparent,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-                    side:  BorderSide(color: Color(0xFF387CFF),width: 2), ),),
+                    side:  BorderSide(color: Colors.transparent,width: 2), ),),
                 child:  Text("Se connecter !",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 15),),),
-            ],),
           ),
 
 

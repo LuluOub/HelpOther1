@@ -34,7 +34,7 @@ class _menuState extends State<menu> {
       bottomNavigationBar:  CurvedNavigationBar(
         backgroundColor: Color(0xFFFCFFFC),
 
-        color: Color(0xFF387CFF),
+        color: Color(0xFF2541B2),
         key: _NavKey,
         items: [
           Icon((myindex == 0) ? Icons.home  : Icons.home_outlined, color: Colors.white,),
@@ -42,7 +42,7 @@ class _menuState extends State<menu> {
           Icon((myindex == 2) ? Icons.message : Icons.message_outlined, color: Colors.white,),
           Icon((myindex == 3) ? Icons.person : Icons.person_outlined, color: Colors.white,),
         ],
-        buttonBackgroundColor: Color(0xFF387CFF),
+        buttonBackgroundColor: Color(0xFF2541B2),
         onTap: (index){
           setState(() {
             myindex = index;

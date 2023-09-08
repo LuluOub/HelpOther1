@@ -6,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:helpother/Chat/List_Discussion.dart';
-import '../Chat/ChatPage.dart';
 
 
 class Discussion extends StatefulWidget {
@@ -25,7 +24,6 @@ class _DiscussionState extends State<Discussion> {
     super.initState();
     this.user = firebase_auth.FirebaseAuth.instance.currentUser;
   }
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -59,15 +57,19 @@ class _DiscussionState extends State<Discussion> {
               child: _buildUserList(),
             ),
           ),
-          Container(padding: EdgeInsets.only(bottom: 20),
+          Container(
+            width: 159,
+            height: 69,
+
+
+            margin: EdgeInsets.only(bottom: 24,top: 30),
             child: ElevatedButton(
             onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => List_Discussion()),);},
-            style: ElevatedButton.styleFrom(elevation: 3,
-            fixedSize: Size(209, 69),
-            backgroundColor:  Color(0xFF387CFF),
+            style: ElevatedButton.styleFrom(
+            backgroundColor:  Color(0xFF2541B2),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-            side:  BorderSide(color: Color(0xFF387CFF),width: 2), ),),
-            child:  Text('Voir mes discussions',style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),)
+            side:  BorderSide(color: Color(0xFF2541B2),width: 2), ),),
+            child:  Text('Mes chats',style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),)
 
           ),)
         ],

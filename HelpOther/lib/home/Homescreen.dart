@@ -66,7 +66,7 @@ class _homeState extends State<home> {
                 Container( margin: EdgeInsets.only(bottom: 40,top: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(color: Color(0xFF387CFF),width: 1),
+                    border: Border.all(color: Color(0xFF2541B2),width: 1),
                     image: const DecorationImage(scale: 1.5,
                         image: ExactAssetImage('images/tree.jpg'),
                         fit: BoxFit.fill
@@ -77,7 +77,7 @@ class _homeState extends State<home> {
                   margin: EdgeInsets.only(bottom: 40,top: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(color: Color(0xFF387CFF),width: 1),
+                    border: Border.all(color: Color(0xFF2541B2),width: 1),
                     image: const DecorationImage(scale: 1.5,
                         image: ExactAssetImage('images/elephant.jpg'),
                         fit: BoxFit.fill
@@ -121,7 +121,8 @@ class _homeState extends State<home> {
               Row( mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomRight,colors: [Color(0xFF3EC7FD),Color(0xFF0026FF),]),borderRadius: BorderRadius.circular(15)),
                     margin: EdgeInsets.only(bottom: 24,top: 30    ),
                     width: 159,
                     height: 69,
@@ -129,7 +130,7 @@ class _homeState extends State<home> {
 
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => Discussion()));},
-                      style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF387CFF),elevation: 6,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
                       child: Text(
                           "Allons-y !",
                           textAlign: TextAlign.center,

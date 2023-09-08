@@ -1,5 +1,6 @@
 
 
+
 import 'package:checkmark/checkmark.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,13 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
 
   firebase_auth.User? user;
 
+  
 
   @override
   void initState() {
     super.initState();
     this.user = firebase_auth.FirebaseAuth.instance.currentUser;
-  }
+}
   final _demandekey = GlobalKey<FormState>();
   String error = '';
   bool checked = false;
@@ -165,7 +167,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: Color(0xFF387CFF),
+                        color: Color(0xFF2541B2),
                       ),
                       color: Color(0xFFFCFFFC),
                     ),
@@ -185,7 +187,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                         color: Color(0xFFFCFFFC),
-                        border: Border.all(color: Color(0xFF387CFF))
+                        border: Border.all(color: Color(0xFF2541B2))
                     ),
                     scrollbarTheme: ScrollbarThemeData(
                       radius: const Radius.circular(40),
@@ -249,7 +251,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(14),
                      border: Border.all(
-                       color: Color(0xFF387CFF),
+                       color: Color(0xFF2541B2),
                      ),
                      color: Color(0xFFFCFFFC),
                    ),
@@ -269,7 +271,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(14),
                      color: Color(0xFFFCFFFC),
-                     border: Border.all(color: Color(0xFF387CFF))
+                     border: Border.all(color: Color(0xFF2541B2))
                    ),
                    scrollbarTheme: ScrollbarThemeData(
                      radius: const Radius.circular(40),
@@ -296,7 +298,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
 
                         Container( height: 77,width: 308,
                           child: TextFormField(
-                            cursorColor: Colors.blueAccent,
+                            cursorColor: Color(0xFF2541B2),
                             minLines: 1,
                             maxLines: 5,
 
@@ -312,8 +314,8 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                                 child:  Image(image: ExactAssetImage('images/question.png'),width: 40,height: 30,),
                               ),
 
-                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF),width: 1),),
-                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF), width: 1,),),
+                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2),width: 1),),
+                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2), width: 1,),),
                               hintStyle: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),),
                             validator: (value) => value != null && value.length < 10
                                 ? "Rentre un chapitre pour qu'on puisse bien t'eguiller "
@@ -330,7 +332,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
 
                         Container( height: 77,width: 308,
                           child: TextFormField(
-                            cursorColor: Colors.blueAccent,
+                            cursorColor: Color(0xFF2541B2),
                             minLines: 1,
                             maxLines: 5,
 
@@ -346,8 +348,8 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                                 child:  Image(image: ExactAssetImage('images/question.png'),width: 40,height: 30,),
                               ),
 
-                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF),width: 1),),
-                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF), width: 1,),),
+                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2),width: 1),),
+                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2), width: 1,),),
                               hintStyle: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),),
                             validator: (value) => value != null && value.length < 25
                                 ? "Decris nous un peu plus ton problème ( le plus de détails possibles ) !"
@@ -358,7 +360,12 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                   ],
           ),
 
-          Container(margin: EdgeInsets.only(top: 50),height: 50,width: 260,child: ElevatedButton(onPressed: () async {
+          Container(decoration: BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomRight,colors: [Color(0xFF3EC7FD),Color(0xFF0026FF),]),borderRadius: BorderRadius.circular(15)),
+            margin: EdgeInsets.only(top: 50),
+            height: 69,
+            width: 159,
+            child: ElevatedButton(onPressed: () async {
                     if (_demandekey.currentState?.validate() == true) {
 
 
@@ -382,11 +389,9 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                     error = 'Rentrez une adresse valide !';});}}
 
           },
-            style: ElevatedButton.styleFrom(elevation: 3,
-              fixedSize: Size(159, 69),
-              backgroundColor:  Color(0xFF387CFF),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-                side:  BorderSide(color: Color(0xFF387CFF),width: 2), ),),
+            style: ElevatedButton.styleFrom(
+              backgroundColor:  Colors.transparent,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
             child:  Text("Envoyer ! ",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),),
 
        ],),),

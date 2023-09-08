@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -119,18 +118,17 @@ class _CompteState extends State<Compte> {
 
 
 
-              Container(padding: EdgeInsets.only(top: 20),
-                child: Row (mainAxisAlignment: MainAxisAlignment.spaceEvenly,children : [
-                  ElevatedButton(onPressed:() {_auth.signOut();
+              Container(margin: EdgeInsets.only(bottom: 24,top: 30),
+                height: 69,
+                width: 159,
+                 child : ElevatedButton(onPressed:() {_auth.signOut();
                   Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreenWrapper()));
                     },
                     style: ElevatedButton.styleFrom(elevation: 3,
-                      fixedSize: Size(159, 69),
-                      backgroundColor:  Color(0xFF387CFF),
+                      backgroundColor: Color(0xFF2541B2),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-                        side:  BorderSide(color: Color(0xFF387CFF),width: 2), ),),
+                        side:  BorderSide(color: Color(0xFF2541B2),width: 2), ),),
                     child:  Text("Se déconnecter",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),
-                ],),
               ),
 
               Row(children: [
