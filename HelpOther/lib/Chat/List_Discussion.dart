@@ -84,7 +84,7 @@ class _List_DiscussionState extends State<List_Discussion> {
           ],
         ),
 
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide(color: Colors.black)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide(color: Color(0xFF2541B2))),
         title: Row(
           children: [
             Text('Matiere :  ',style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20)),

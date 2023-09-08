@@ -361,7 +361,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
           ),
 
           Container(decoration: BoxDecoration(
-              gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomRight,colors: [Color(0xFF3EC7FD),Color(0xFF0026FF),]),borderRadius: BorderRadius.circular(15)),
+              borderRadius: BorderRadius.circular(15)),
             margin: EdgeInsets.only(top: 50),
             height: 69,
             width: 159,
@@ -390,7 +390,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
 
           },
             style: ElevatedButton.styleFrom(
-              backgroundColor:  Colors.transparent,
+              backgroundColor:  Color(0xFF2541B2),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
             child:  Text("Envoyer ! ",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),),
 

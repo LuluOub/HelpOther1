@@ -22,14 +22,7 @@ final passwordsure = TextEditingController();
 String error = '';
 @override
 
-  void toggleView() {
-    setState(() {
-      _formKey.currentState?.reset();
-      error = '';
-      mdpcontroller.text = '';
-      passwordsure.text = '';
-    });
-  }
+  
   void dispose() {
     passwordsure.dispose();
     mdpcontroller.dispose();
@@ -69,7 +62,7 @@ Column( children:[
               Container( padding: EdgeInsets.only(top: 20),
                 height: 77,width: 308,
                 child: TextFormField(
-                  cursorColor: Colors.blueAccent,
+                  cursorColor: Color(0xFF2541B2),
                   style: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),
                   controller: mdpcontroller,
                   decoration: InputDecoration(
@@ -79,8 +72,8 @@ Column( children:[
                       child:  Image(image: ExactAssetImage('images/Key.png'),width: 40,height: 30,),
                     ),
 
-                    focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF),width: 1),),
-                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF), width: 1,),),
+                    focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2),width: 1),),
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2), width: 1,),),
                     hintStyle: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),),
                   obscureText: true,
                   validator: (value) => value != null && value.length < 6
@@ -92,8 +85,8 @@ Column( children:[
           Container(padding: EdgeInsets.only(top:20),
             height: 77,width: 308,
             child: TextFormField(
-              cursorColor: Colors.blueAccent,
-              style: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),
+              cursorColor: Color(0xFF2541B2),
+              style: GoogleFonts.montserrat(color: Color(0xFF2541B2),fontSize: 15),
               controller: passwordsure,
               decoration: InputDecoration(
                 hintText: 'Confirme ton mot de passe',
@@ -102,8 +95,8 @@ Column( children:[
                   child:  Image(image: ExactAssetImage('images/Key.png'),width: 40,height: 30,),
                 ),
 
-                focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF),width: 1),),
-                enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF387CFF), width: 1,),),
+                focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2),width: 1),),
+                enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2), width: 1,),),
                 hintStyle: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),),
               obscureText: true,
               validator: (value) => value != null && value.length < 6
@@ -136,9 +129,9 @@ Column( children:[
                 };},
                 style: ElevatedButton.styleFrom(elevation: 3,
                   fixedSize: Size(159, 69),
-                  backgroundColor:  Color(0xFF387CFF),
+                  backgroundColor:  Color(0xFF2541B2),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-                    side:  BorderSide(color: Color(0xFF387CFF),width: 2), ),),
+                    side:  BorderSide(color: Color(0xFF2541B2),width: 2), ),),
                 child:  Text("Confirmer ",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),
             ],),
           ),
@@ -148,6 +141,6 @@ Column( children:[
       ),
     );
 
-    ;
+
   }
 }

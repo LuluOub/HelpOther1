@@ -164,18 +164,18 @@ class _ChatPageState extends State<ChatPage> {
           TextFormField(
             controller: _messageController,
 
-            cursorColor: Colors.blue,
+            cursorColor: Color(0xFF2541B2),
             textAlign: TextAlign.center,
 
             decoration: InputDecoration(
 hintStyle: GoogleFonts.montserrat(color: Colors.black),
               hintText: 'Entre ton message',
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue,),borderRadius: BorderRadius.circular(10)),
-             disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue,),borderRadius: BorderRadius.circular(10)),
+              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xFF2541B2),),borderRadius: BorderRadius.circular(10)),
+             disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xFF2541B2),),borderRadius: BorderRadius.circular(10)),
 
               suffixIcon: Padding(
-                padding: const EdgeInsets.only(bottom: 6.0,right: 10),
-                child: IconButton(onPressed: sendMessage,icon: const Icon(Icons.arrow_upward,size: 40,color: Colors.black,),),
+                padding: const EdgeInsets.only(bottom: 6.0,right: 20),
+                child: IconButton(onPressed: sendMessage,icon: const Icon(Icons.keyboard_arrow_up_outlined,size: 40,color: Colors.black,),),
               )
 
 
@@ -254,12 +254,14 @@ hintStyle: GoogleFonts.montserrat(color: Colors.black),
 
 
   showAlertDialog(BuildContext context) {
-    Widget cancelButton = ElevatedButton(
+    Widget cancelButton = FilledButton(
       child: Text("Annuler"),
+      style: FilledButton.styleFrom(backgroundColor: Color(0xFF2541B2),),
       onPressed:  () { Navigator.of(context).pop();},
     );
     Widget continueButton = FilledButton(
       child: Text("Continuer"),
+      style: FilledButton.styleFrom(backgroundColor: Color(0xFF2541B2),),
       onPressed:  () async {suprDiscussion;}
     );
     // set up the AlertDialog

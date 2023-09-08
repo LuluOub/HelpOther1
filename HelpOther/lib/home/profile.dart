@@ -168,12 +168,12 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    child: ElevatedButton.icon(
                      icon: Padding(
                        padding: EdgeInsets.zero, // add padding to adjust icon
-                       child:  Image(image: ExactAssetImage('images/credits.png'),width: 30,height: 30,),
+                       child:  Image(image: ExactAssetImage('images/store.png'),width: 30,height: 30,),
                      ),
                      label: Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                        children: [
-                         Text('Credits',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
+                         Text('Boutique',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
                          Icon(Icons.arrow_forward_ios)
                        ],
                      ),
