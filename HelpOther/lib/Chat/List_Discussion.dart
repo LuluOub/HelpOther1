@@ -21,30 +21,31 @@ class _List_DiscussionState extends State<List_Discussion> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Theme.of(context).iconTheme.color),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
         body:
         Column(
           children: <Widget>[
-            Container( padding: EdgeInsets.only(top:100),
-              child: Text('Voici toutes tes discussions !',style: GoogleFonts.breeSerif(
-                color: Color(0xFF323131),
-                fontWeight: FontWeight.bold,
-                fontSize: 35,
-              ), textAlign: TextAlign.center,),),
+            Container( padding: EdgeInsets.only(top:50),
+              child: Text('Voici toutes tes discussions !',style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,)),
             Container( padding: EdgeInsets.only(top:10),
-              child: Text('continue-les !',style: GoogleFonts.breeSerif(
-                color: Color(0xFF323131),
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ), textAlign: TextAlign.center,),),
+              child: Text('continue-les !',style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),),
 
             Container( padding: EdgeInsets.only(top: 10 ),
-              child: Divider(color: Colors.black,endIndent: 50,indent: 50,thickness: 1,),),
+              child: Divider(color:  Theme.of(context).colorScheme.secondary,endIndent: 50,indent: 50,thickness: 1,),),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: _buildDiscList(),
+                padding: EdgeInsets.all(10.0),
+                child: _buildDiscList()
+                ,)
               ),
-            ),
           ],
 
         )
@@ -76,19 +77,20 @@ class _List_DiscussionState extends State<List_Discussion> {
     if(_auth.currentUser!.email != data['email']){
       return ListTile(
 
-        trailing: Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 40,),
+        trailing: Icon(Icons.arrow_forward_ios_outlined,color:  Theme.of(context).iconTheme.color,size: 40,),
         subtitle: Row(
           children: [
-            Text('Jour :  ',style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20),),
-            Text(data['jour'],style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20),),
+            Text('Jour :  ',style: Theme.of(context).textTheme.titleMedium),
+            Text(data['jour'],style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
 
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide(color: Color(0xFF2541B2))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide(color: Theme.of(context).colorScheme.primary)),
         title: Row(
           children: [
-            Text('Matiere :  ',style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20)),
-            Container(child: Text(data['Matière'],style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20),)),
+            Text('Matiere :  ',style :Theme.of(context).textTheme.titleMedium),
+            Container(child: Text(data['Matière'],style: Theme.of(context).textTheme.titleMedium)),
+
           ],
 
         ),

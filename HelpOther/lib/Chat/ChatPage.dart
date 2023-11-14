@@ -4,10 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:helpother/Chat/chatBubble.dart';
 import 'package:helpother/Chat/chat_service.dart';
-
 import 'Despcription.dart';
 
 class ChatPage extends StatefulWidget {
@@ -59,17 +57,17 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Color(0xFFFCFFFC),
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-          backgroundColor: Color(0xFFFCFFFC),
+          backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
 
-          title: Text(widget.receiverUserName,style: GoogleFonts.montserrat(color: Colors.black,),textAlign: TextAlign.center,),
+          title: Text(widget.receiverUserName,style:  Theme.of(context).textTheme.titleLarge,textAlign: TextAlign.center,),
           centerTitle: true,
           actions: [
             PopupMenuButton<int>( icon: ImageIcon(
               AssetImage('images/MoreD.png'),
-              color: Colors.black,
+              color: Theme.of(context).iconTheme.color,
             ), padding: EdgeInsets.only(right: 20),
               itemBuilder: (context) => [
                 // popupmenu item 1
@@ -81,7 +79,7 @@ class _ChatPageState extends State<ChatPage> {
                   // row has two child icon and text.
                   child: Row(
                     children: [
-                      Icon(Icons.stop_circle),
+                      Icon(Icons.stop_circle, color: Theme.of(context).iconTheme.color,),
                       SizedBox(
                         // sized box with width 10
                         width: 10,
@@ -99,7 +97,7 @@ class _ChatPageState extends State<ChatPage> {
                   // row has two child icon and text
                   child: Row(
                     children: [
-                      Icon(Icons.more_horiz),
+                      Icon(Icons.more_horiz,color: Theme.of(context).iconTheme.color,),
                       SizedBox(
                         // sized box with width 10
                         width: 10,
@@ -111,12 +109,12 @@ class _ChatPageState extends State<ChatPage> {
               ],
 
               offset: Offset(0, 50),
-              color: Color(0xFFD6D6D6),
+              color: Theme.of(context).colorScheme.tertiary,
               elevation: 2,
             ),
           ],
           leading: IconButton( padding: EdgeInsets.only(left: 20),
-            icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+            icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).iconTheme.color),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
@@ -168,14 +166,20 @@ class _ChatPageState extends State<ChatPage> {
             textAlign: TextAlign.center,
 
             decoration: InputDecoration(
-hintStyle: GoogleFonts.montserrat(color: Colors.black),
-              hintText: 'Entre ton message',
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xFF2541B2),),borderRadius: BorderRadius.circular(10)),
-             disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xFF2541B2),),borderRadius: BorderRadius.circular(10)),
 
+              hintStyle: Theme.of(context).textTheme.titleMedium ,
+              hintText: 'Entre ton message',
+              prefixIcon: Padding(
+                padding: const EdgeInsets.only(bottom: 6.0,right: 20),
+                child: IconButton(onPressed: sendMessage,icon:  Icon(Icons.photo,size: 40,color: Theme.of(context).iconTheme.color,),),
+              ),
+              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).colorScheme.primary,),borderRadius: BorderRadius.circular(10)),
+             disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).colorScheme.primary,),borderRadius: BorderRadius.circular(10)),
+              fillColor: Theme.of(context).colorScheme.background,
+              filled: true,
               suffixIcon: Padding(
                 padding: const EdgeInsets.only(bottom: 6.0,right: 20),
-                child: IconButton(onPressed: sendMessage,icon: const Icon(Icons.keyboard_arrow_up_outlined,size: 40,color: Colors.black,),),
+                child: IconButton(onPressed: sendMessage,icon:  Icon(Icons.keyboard_arrow_up_outlined,size: 40,color: Theme.of(context).iconTheme.color,),),
               )
 
 
@@ -223,24 +227,29 @@ hintStyle: GoogleFonts.montserrat(color: Colors.black),
                       : MainAxisAlignment.start,
 
                   children: [
-                    Container(
 
-                      padding: EdgeInsets.only(right: 10),
-                      child: TextAvatar(
-                        shape: Shape.Circular,
-                        size: 10,
-                        textColor: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        upperCase: true,
-                        backgroundColor: Colors.blue,
-                        numberLetters: 1,
-                        text: "${user!.displayName}",
-                      ),
-                    ),
 
-                Container(
-                    child: Text(data['senderName'],style: GoogleFonts.montserrat(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),)),
+                        Container(
+
+                          padding: EdgeInsets.only(right: 10),
+                          child: TextAvatar(
+                            shape: Shape.Circular,
+                            size: 10,
+                            textColor: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            upperCase: true,
+                            backgroundColor: Colors.blue,
+                            numberLetters: 1,
+                            text: "${user!.displayName}",
+                          ),
+                        ), 
+
+                Container( padding:
+                   (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                       ? EdgeInsets.only(bottom: 10)
+                       : EdgeInsets.only(top: 10),
+                    child: Text(data['senderName'],style: Theme.of(context).textTheme.titleMedium,)),
                   ],
         ),
             SizedBox(height: 5,),
@@ -282,3 +291,6 @@ hintStyle: GoogleFonts.montserrat(color: Colors.black),
     );
   }
 }
+
+
+

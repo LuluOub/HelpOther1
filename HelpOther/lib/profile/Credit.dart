@@ -13,12 +13,12 @@ class _CreditsState extends State<Credits> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCFFFC),
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFCFFFC),
+        backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).iconTheme.color),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -28,11 +28,11 @@ class _CreditsState extends State<Credits> {
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( padding: EdgeInsets.only(top: 40),
-                  child: Text('Nos Crédits :', style: GoogleFonts.breeSerif(color: Color(0xFF323131),fontSize: 35),),
+                  child: Text('Nos Crédits :', style: Theme.of(context).textTheme.titleLarge,),
                 ),
               ],
             ),
-            Container(padding: EdgeInsets.only(top: 15),child: Divider(endIndent: 50,indent: 50,color: Colors.black,thickness: 1,)),
+            Container(padding: EdgeInsets.only(top: 15),child: Divider(endIndent: 50,indent: 50,color: Theme.of(context).colorScheme.secondary,thickness: 1,)),
 
 
 
@@ -41,15 +41,14 @@ class _CreditsState extends State<Credits> {
             Row(
               children: [
                 Container( padding: EdgeInsets.only(top: 40,left: 50),
-                  child: Text('- Lucas Oubaiche', style: GoogleFonts.breeSerif(color: Color(0xFF323131),fontSize: 25),),
-                ),
+                  child: Text('- Lucas Oubaiche', style: Theme.of(context).textTheme.titleMedium),),
               ],
             ),
             Row(
               children: [
                 Container( padding: EdgeInsets.only(top: 40,left: 50),
-                  child: Text('Et voila..', style: GoogleFonts.breeSerif(color: Color(0xFF323131),fontSize: 25),),
-                ),
+                  child: Text('Et voila..', style: Theme.of(context).textTheme.titleMedium),),
+
               ],
             ),
 

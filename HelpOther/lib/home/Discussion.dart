@@ -32,25 +32,19 @@ class _DiscussionState extends State<Discussion> {
     return Scaffold(
 
 
+      backgroundColor: Theme.of(context).colorScheme.background,
+
 
       body:
       Column(
         children: <Widget>[
           Container( padding: EdgeInsets.only(top:100),
-            child: Text('Voici toutes les discussions !',style: GoogleFonts.breeSerif(
-      color: Color(0xFF323131),
-      fontWeight: FontWeight.bold,
-      fontSize: 35,
-    ), textAlign: TextAlign.center,),),
+            child: Text('Voici toutes les discussions !',style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),),
           Container( padding: EdgeInsets.only(top:10),
-            child: Text('réponds-y',style: GoogleFonts.breeSerif(
-      color: Color(0xFF323131),
-      fontWeight: FontWeight.bold,
-      fontSize: 20,
-    ), textAlign: TextAlign.center,),),
+            child: Text('réponds-y',style:  Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),),
 
           Container( padding: EdgeInsets.only(top: 10 ),
-            child: Divider(color: Colors.black,endIndent: 50,indent: 50,thickness: 1,),),
+            child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 50,indent: 50,thickness: 1,),),
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(8.0),
@@ -66,10 +60,10 @@ class _DiscussionState extends State<Discussion> {
             child: ElevatedButton(
             onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => List_Discussion()),);},
             style: ElevatedButton.styleFrom(
-            backgroundColor:  Color(0xFF2541B2),
+            backgroundColor:  Theme.of(context).colorScheme.primary,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-            side:  BorderSide(color: Color(0xFF2541B2),width: 2), ),),
-            child:  Text('Mes chats',style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),)
+            side:  BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background,width: 2), ),),
+            child:  Text('Mes chats',style: Theme.of(context).textTheme.labelLarge)
 
           ),)
         ],
@@ -105,20 +99,23 @@ class _DiscussionState extends State<Discussion> {
   Widget _buildUserListItem(DocumentSnapshot document){
     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
     if(_auth.currentUser!.email != data['email']){
-      return ListTile(
-         trailing: Icon(Icons.arrow_forward_ios_outlined,color: Colors.black,size: 40,),
+      return  ListTile(
+
+
+         trailing: Icon(Icons.arrow_forward_ios_outlined,color: Theme.of(context).iconTheme.color,size: 40,),
           subtitle: Row(
             children: [
-              Text('Jour :  ',style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20),),
-              Text(data['jour'],style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20),),
+              Text('Jour :  ',style: Theme.of(context).textTheme.titleMedium),
+              Text(data['jour'],style: Theme.of(context).textTheme.titleMedium),
             ],
           ),
 
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide(color: Color(0xFF2541B2))),
+
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide(color: Theme.of(context).colorScheme.primary)),
           title: Row(
             children: [
-              Text('Matiere :  ',style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20)),
-              Container(child: Text(data['Matière'],style: GoogleFonts.breeSerif(color: Colors.black,fontSize: 20),)),
+              Text('Matiere :  ',style: Theme.of(context).textTheme.titleMedium),
+              Container(child: Text(data['Matière'],style: Theme.of(context).textTheme.titleMedium)),
             ],
           ),
           onTap: () async {

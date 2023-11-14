@@ -30,7 +30,7 @@ class _homeState extends State<home> {
 
 
     return Scaffold(
-        backgroundColor: const Color(0xFFFCFFFC),
+        backgroundColor: Theme.of(context).colorScheme.background,
         body : Container(
           child: ListView(
             children: [
@@ -38,23 +38,15 @@ class _homeState extends State<home> {
               Container( width: 372, padding: EdgeInsets.only(top:60),
 
                 child: Text('Content de te revoir ${user!.displayName} !',
-                  style: GoogleFonts.breeSerif(
-                    color: Color(0xFF323131),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35,
-                  ), textAlign: TextAlign.center,),
+                  style:Theme.of(context).textTheme.titleLarge,  textAlign: TextAlign.center,),
               ),
-              Container(padding: EdgeInsets.only(top:20),child: Divider(color: Colors.black, endIndent: 50, indent: 50, thickness: 1,)),
+              Container(padding: EdgeInsets.only(top:20),child: Divider(color: Theme.of(context).colorScheme.secondary, endIndent: 50, indent: 50, thickness: 1,)),
               Row(
                 children: [
                   Container( width: 372, padding: EdgeInsets.only(top: 30,right: 112),
 
                     child: Text('Les news de l’application :',
-                      style: GoogleFonts.breeSerif(
-                        color: Color(0xFF323131),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ), textAlign: TextAlign.center,),
+                      style: Theme.of(context).textTheme.titleSmall ,textAlign: TextAlign.center,),
                   ),
                 ],
               ),
@@ -66,8 +58,8 @@ class _homeState extends State<home> {
                 Container( margin: EdgeInsets.only(bottom: 40,top: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(color: Color(0xFF2541B2),width: 1),
-                    image: const DecorationImage(scale: 1.5,
+                    border: Border.all(color: Theme.of(context).buttonTheme.colorScheme!.background,width: 1),
+                    image:  const DecorationImage(scale: 1.5,
                         image: ExactAssetImage('images/tree.jpg'),
                         fit: BoxFit.fill
                     ),
@@ -77,7 +69,7 @@ class _homeState extends State<home> {
                   margin: EdgeInsets.only(bottom: 40,top: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(color: Color(0xFF2541B2),width: 1),
+                    border: Border.all(color: Theme.of(context).buttonTheme.colorScheme!.background,width: 1),
                     image: const DecorationImage(scale: 1.5,
                         image: ExactAssetImage('images/elephant.jpg'),
                         fit: BoxFit.fill
@@ -104,16 +96,12 @@ class _homeState extends State<home> {
 
                 ),
               ),
-              Container(padding: EdgeInsets.only(bottom: 10),child: Divider(color: Colors.black, endIndent: 50, indent: 50, thickness: 1,)),
+              Container(padding: EdgeInsets.only(bottom: 10),child: Divider(color: Theme.of(context).colorScheme.secondary, endIndent: 50, indent: 50, thickness: 1,)),
               Row( mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container( width: 323,
                     child: Text('Tu as (nb de reponse) en attente ! Tu devrais aller y répondre !',
-                      style: GoogleFonts.breeSerif(
-                        color: Color(0xFF323131),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ), textAlign: TextAlign.center,)
+                      style: Theme.of(context).textTheme.titleMedium, textAlign: TextAlign.center,)
                     ,),
                 ],
               ),
@@ -134,7 +122,7 @@ class _homeState extends State<home> {
                       child: Text(
                           "Allons-y !",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.bowlbyOneSc(color: Colors.white,fontSize: 16)
+                          style: Theme.of(context).textTheme.labelLarge,
                       ),
                     ),
                   ),

@@ -13,12 +13,12 @@ class _AvisState extends State<Avis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCFFFC),
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFCFFFC),
+        backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).iconTheme.color),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -28,11 +28,11 @@ class _AvisState extends State<Avis> {
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( padding: EdgeInsets.only(top: 40),
-                  child: Text('Donnez votre avis ! ', style: GoogleFonts.breeSerif(color: Color(0xFF323131),fontSize: 35),),
+                  child: Text('Donnez votre avis ! ', style: Theme.of(context).textTheme.titleLarge,),
                 ),
               ],
             ),
-            Container(padding: EdgeInsets.only(top: 15),child: Divider(endIndent: 50,indent: 50,color: Colors.black,thickness: 1,)),
+            Container(padding: EdgeInsets.only(top: 15),child: Divider(endIndent: 50,indent: 50,color: Theme.of(context).colorScheme.background,thickness: 1,)),
 
 
             Container(padding: EdgeInsets.only(top: 50),
@@ -40,10 +40,10 @@ class _AvisState extends State<Avis> {
                 ElevatedButton(onPressed:() {},
                   style: ElevatedButton.styleFrom(elevation: 3,
                     fixedSize: Size(159, 69),
-                    backgroundColor:  Color(0xFF2541B2),
+                    backgroundColor:  Theme.of(context).buttonTheme.colorScheme!.background,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-                      side:  BorderSide(color: Color(0xFF2541B2),width: 2), ),),
-                  child:  Text("IOS !",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),
+                      side:  BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background,width: 2), ),),
+                  child:  Text("IOS !",style: Theme.of(context).textTheme.labelLarge,),),
               ],),
             ),
             Container(padding: EdgeInsets.only(top: 50),
@@ -51,10 +51,10 @@ class _AvisState extends State<Avis> {
                 ElevatedButton(onPressed:() {},
                   style: ElevatedButton.styleFrom(elevation: 3,
                     fixedSize: Size(159, 69),
-                    backgroundColor:  Color(0xFF2541B2),
+                    backgroundColor:  Theme.of(context).buttonTheme.colorScheme!.background,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
-                      side:  BorderSide(color: Color(0xFF2541B2),width: 2), ),),
-                  child:  Text("Android !",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),
+                      side:  BorderSide(color:Theme.of(context).buttonTheme.colorScheme!.background,width: 2), ),),
+                  child:  Text("Android !",style: Theme.of(context).textTheme.labelLarge,),),
               ],),
             ),
 

@@ -8,11 +8,12 @@ class AppUser {
 
 class AppUserData {
   final String uid;
-  final String Name;
+  final String name;
   final String email;
   final String uid1;
+  final String role;
 
-  AppUserData({required this.uid, required this.Name, required this.email, required this.uid1});
+  AppUserData({required this.uid, required this.name, required this.email, required this.uid1,required this.role});
 
 
 }

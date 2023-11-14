@@ -28,27 +28,23 @@ class _DesProblemesState extends State<DesProblemes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCFFFC),
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFCFFFC),
+        backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
         leading: IconButton( padding: EdgeInsets.only(left: 20),
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          icon: Icon(Icons.arrow_back_ios, color:  Theme.of(context).iconTheme.color),
           onPressed: () => Navigator.of(context).pop(),
         ),
 
-        title: Text('Les Infos',style: GoogleFonts.montserrat(color: Colors.black,),textAlign: TextAlign.center,),
+        title: Text('Les Infos',style: Theme.of(context).textTheme.titleMedium,textAlign: TextAlign.center,),
         centerTitle: true,),
       body:Column(
         children: <Widget>[
-          Container( padding: EdgeInsets.only(top:50),
-            child: Text('Voici les infos de la demande !',style: GoogleFonts.breeSerif(
-              color: Color(0xFF323131),
-              fontWeight: FontWeight.bold,
-              fontSize: 35,
-            ), textAlign: TextAlign.center,),),
+          Container( padding: EdgeInsets.only(top:50), width: 300,
+            child: Text('Voici les infos de la demande !',style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),),
           Container( padding: EdgeInsets.only(top: 10 ),
-            child: Divider(color: Colors.black,endIndent: 50,indent: 50,thickness: 1,),),
+            child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 50,indent: 50,thickness: 1,),),
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(16.0),
@@ -94,29 +90,29 @@ class _DesProblemesState extends State<DesProblemes> {
             Row(
               children: [
 
-            Container(width: 150,padding: EdgeInsets.only(top: 10),
-                child: Text('- Chapitre :  ', style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),)),
+            Container(width: 150,padding: EdgeInsets.only(top: 50),
+                child: Text('- Chapitre :  ', style: Theme.of(context).textTheme.titleMedium,)),
             Container( width: 150,padding: EdgeInsets.only(top: 50),
               child: Text(data['chapitre'],
-                style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),textAlign: TextAlign.center,),
+                style: Theme.of(context).textTheme.titleMedium,textAlign: TextAlign.center,),
             ),
           ], ),
             new Row(
               children: [
                 SizedBox(height: 10,),
-                Container( padding: EdgeInsets.only(top: 10), width: 150,
-                    child: Text('- Problème :  ',style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),)),
+                Container( padding: EdgeInsets.only(top: 50), width: 150,
+                    child: Text('- Problème :  ',style: Theme.of(context).textTheme.titleMedium,)),
                 Container( padding: EdgeInsets.only(top:50), width: 150,
-                    child: Text(data['demande'], style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25))),
+                    child: Text(data['demande'], style:Theme.of(context).textTheme.titleMedium)),
 
               ],
             ),
             new Row(
               children: [
                 Container( padding: EdgeInsets.only(top: 50), width: 150,
-                    child: Text('- Jour :  ',style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25),)),
+                    child: Text('- Jour :  ',style: Theme.of(context).textTheme.titleMedium,)),
                 Container( padding: EdgeInsets.only(top:50), width: 150,
-                    child: Text(data['jour'], style: GoogleFonts.breeSerif(color: Colors.black, fontSize: 25))),
+                    child: Text(data['jour'], style: Theme.of(context).textTheme.titleMedium)),
               ],
 
             )
@@ -125,14 +121,12 @@ class _DesProblemesState extends State<DesProblemes> {
         title: Column(
           children: [
             Row( children : [
-            Container( padding: EdgeInsets.only(top: 10), width: 150,
+            Container( padding: EdgeInsets.only(top: 50), width: 150,
               child: Text(
-                  '- Matière :  ', style: GoogleFonts.breeSerif(
-                  color: Colors.black, fontSize: 25)),
+                  '- Matière :  ',style: Theme.of(context).textTheme.titleMedium),
             ),
             Container( padding: EdgeInsets.only(top:50), width: 150,
-                child: Text(data['Matière'], style: GoogleFonts.breeSerif(
-                color: Colors.black, fontSize: 25),)),],),
+                child: Text(data['Matière'], style: Theme.of(context).textTheme.titleMedium,)),],),
           ],
         ),
 

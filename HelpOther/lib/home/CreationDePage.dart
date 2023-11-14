@@ -1,10 +1,6 @@
-
-
-
 import 'package:checkmark/checkmark.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:helpother/common/pub.dart';
@@ -88,39 +84,25 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold( backgroundColor: const Color(0xFFFCFFFC),
+     return Scaffold( backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView( padding: EdgeInsets.only(left: 24, right: 24,), child : Column(
         children: [
 
           Container(padding: EdgeInsets.only(top: 25,) ,
             child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
-          Container(padding: EdgeInsets.only(top: 100), child: Text("Remplis ce formulaire pour qu'on puisse t'aider !", style: GoogleFonts.raleway(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 25, ),textAlign: TextAlign.center,)),
+          Container(padding: EdgeInsets.only(top: 100), child: Text("Remplis ce formulaire pour qu'on puisse t'aider !", style: Theme.of(context).textTheme.titleLarge,textAlign: TextAlign.center,)),
           ],),),
-          Container( color: Colors.white,
+          Container( color: Theme.of(context).colorScheme.background,
             child: SizedBox(
               height: 50,
               width: 50,
               child: CheckMark(
-                inactiveColor: Colors.white,
+                inactiveColor: Theme.of(context).colorScheme.background,
                 activeColor: Colors.greenAccent,
-
-
                 active: checked,
                 curve: Curves.decelerate,
                 duration: const Duration(milliseconds: 500),),),
           ),
-
-
-
-
-
-
-
-
-
-
-
-
 
           Row( mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -136,7 +118,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                       Expanded(
                         child: Text(
                           'Selectionne une matière ',
-                          style: GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                          style: Theme.of(context).textTheme.labelMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -148,7 +130,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                     child: Center(
                       child: Text(
                         item,
-                        style : GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                        style : Theme.of(context).textTheme.labelMedium,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -167,9 +149,9 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: Color(0xFF2541B2),
+                        color: Theme.of(context).buttonTheme.colorScheme!.background,
                       ),
-                      color: Color(0xFFFCFFFC),
+                      color:  Theme.of(context).colorScheme.background,
                     ),
                     elevation: 6,
                   ),
@@ -178,16 +160,16 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                       Icons.keyboard_arrow_down_outlined,
                     ),
                     iconSize: 20,
-                    iconEnabledColor: Colors.black,
-                    iconDisabledColor: Colors.black,
+                    iconEnabledColor: Theme.of(context).iconTheme.color,
+                    iconDisabledColor: Theme.of(context).iconTheme.color,
                   ),
                   dropdownStyleData: DropdownStyleData(
                     maxHeight: 200,
                     width: 308,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                        color: Color(0xFFFCFFFC),
-                        border: Border.all(color: Color(0xFF2541B2))
+                        color: Theme.of(context).colorScheme.background,
+                        border: Border.all(color: Theme.of(context).buttonTheme.colorScheme!.background)
                     ),
                     scrollbarTheme: ScrollbarThemeData(
                       radius: const Radius.circular(40),
@@ -217,8 +199,8 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                      ),
                      Expanded(
                        child: Text(
-                         'Selectionne ta classe ',
-                         style: GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                         'Selectionne le jour ',
+                         style: Theme.of(context).textTheme.labelMedium,
                          overflow: TextOverflow.ellipsis,
                        ),
                      ),
@@ -230,7 +212,7 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                    child: Center(
                      child: Text(
                        item,
-                       style : GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                       style :  Theme.of(context).textTheme.labelMedium,
                        textAlign: TextAlign.center,
                        overflow: TextOverflow.ellipsis,
 
@@ -251,9 +233,9 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(14),
                      border: Border.all(
-                       color: Color(0xFF2541B2),
+                       color: Theme.of(context).buttonTheme.colorScheme!.background,
                      ),
-                     color: Color(0xFFFCFFFC),
+                     color:Theme.of(context).colorScheme.background,
                    ),
                    elevation: 6,
                  ),
@@ -262,16 +244,16 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                      Icons.keyboard_arrow_down_outlined,
                    ),
                    iconSize: 20,
-                   iconEnabledColor: Colors.black,
-                   iconDisabledColor: Colors.black,
+                   iconEnabledColor: Theme.of(context).iconTheme.color,
+                   iconDisabledColor: Theme.of(context).iconTheme.color,
                  ),
                  dropdownStyleData: DropdownStyleData(
                    maxHeight: 200,
                    width: 308,
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(14),
-                     color: Color(0xFFFCFFFC),
-                     border: Border.all(color: Color(0xFF2541B2))
+                     color: Theme.of(context).colorScheme.background,
+                     border: Border.all(color: Theme.of(context).buttonTheme.colorScheme!.background)
                    ),
                    scrollbarTheme: ScrollbarThemeData(
                      radius: const Radius.circular(40),
@@ -299,27 +281,19 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                         Container( height: 77,width: 308,
                           child: TextFormField(
                             cursorColor: Color(0xFF2541B2),
-                            minLines: 1,
-                            maxLines: 5,
-
-
-
-
-                            style: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),
+                            style: Theme.of(context).textTheme.labelMedium,
                             controller: chapitreController,
                             decoration: InputDecoration(
                               hintText: 'Quel est le chapitre ? ',
                               prefixIcon:   Padding(
                                 padding: EdgeInsets.only(left : 15,right: 15,bottom: 2), // add padding to adjust icon
-                                child:  Image(image: ExactAssetImage('images/question.png'),width: 40,height: 30,),
+                                child:  Image(image: ExactAssetImage('images/question.png'),width: 40,height: 30,color: Theme.of(context).iconTheme.color,),
                               ),
 
-                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2),width: 1),),
-                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2), width: 1,),),
-                              hintStyle: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),),
-                            validator: (value) => value != null && value.length < 10
-                                ? "Rentre un chapitre pour qu'on puisse bien t'eguiller "
-                                : null,
+                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Theme.of(context).buttonTheme.colorScheme!.background,width: 1),),
+                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:   Theme.of(context).buttonTheme.colorScheme!.background, width: 1,),),
+                              hintStyle:Theme.of(context).textTheme.labelMedium,),
+
                           ),
                         ),
                  ],  ),
@@ -333,25 +307,20 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                         Container( height: 77,width: 308,
                           child: TextFormField(
                             cursorColor: Color(0xFF2541B2),
-                            minLines: 1,
-                            maxLines: 5,
 
-
-
-
-                            style: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),
+                            style: Theme.of(context).textTheme.labelMedium,
                             controller: problemeController,
                             decoration: InputDecoration(
                               hintText: 'Decris nous ton problème ? ',
                               prefixIcon:   Padding(
                                 padding: EdgeInsets.only(left : 15,right: 15,bottom: 2), // add padding to adjust icon
-                                child:  Image(image: ExactAssetImage('images/question.png'),width: 40,height: 30,),
+                                child:  Image(image: ExactAssetImage('images/question.png'),width: 40,height: 30,color: Theme.of(context).iconTheme.color,),
                               ),
 
-                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2),width: 1),),
-                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Color(0xFF2541B2), width: 1,),),
-                              hintStyle: GoogleFonts.montserrat(color: Color(0xFF1E1E1E),fontSize: 15),),
-                            validator: (value) => value != null && value.length < 25
+                              focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background,width: 1),),
+                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color:  Theme.of(context).buttonTheme.colorScheme!.background, width: 1,),),
+                              hintStyle: Theme.of(context).textTheme.labelMedium,),
+                            validator: (value) => value != null
                                 ? "Decris nous un peu plus ton problème ( le plus de détails possibles ) !"
                                 : null,
                           ),
@@ -366,7 +335,6 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
             height: 69,
             width: 159,
             child: ElevatedButton(onPressed: () async {
-                    if (_demandekey.currentState?.validate() == true) {
 
 
                       FirebaseFirestore.instance.collection('demande').doc(user!.uid).set({
@@ -386,13 +354,13 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
                     dynamic result;
                     if (result == false) {
                     setState(() {
-                    error = 'Rentrez une adresse valide !';});}}
+                    error = 'Rentrez une adresse valide !';});}
 
           },
             style: ElevatedButton.styleFrom(
-              backgroundColor:  Color(0xFF2541B2),
+              backgroundColor:  Theme.of(context).buttonTheme.colorScheme!.background,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
-            child:  Text("Envoyer ! ",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 14),),),),
+            child:  Text("Envoyer ! ",style: Theme.of(context).textTheme.labelLarge,),),),
 
        ],),),
 

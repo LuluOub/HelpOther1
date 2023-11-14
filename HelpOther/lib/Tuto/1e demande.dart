@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:helpother/Tuto/Notification.dart';
-
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import '../home/BottomNavBar.dart';
 
 class premDemande extends StatefulWidget {
@@ -15,6 +15,9 @@ class premDemande extends StatefulWidget {
 }
 
 class _premDemandeState extends State<premDemande> {
+
+
+  firebase_auth.User? user;
   final _demandekey = GlobalKey<FormState>();
   final List<String> matiere =[
     'Mathematique',
@@ -23,7 +26,17 @@ class _premDemandeState extends State<premDemande> {
     'Anglais',
     'SVT',
   ];
+
+  final List<String> jour =[
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi',
+  ];
   String? selectedMatiere;
+  String? selectedJour;
 
   final chapitrecontroller = TextEditingController();
   final problemecontroler = TextEditingController();
@@ -137,8 +150,177 @@ class _premDemandeState extends State<premDemande> {
 
             Divider(color: Colors.black, endIndent: 50,indent: 50,thickness: 1,),
 
+            Row( mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container( alignment: Alignment.topLeft,padding: EdgeInsets.only(top:20,bottom: 20), child :
+                DropdownButtonHideUnderline(
+                  child: DropdownButton2<String>(
+                    isExpanded: true,
+                    hint:  Row(
+                      children: [
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Selectionne le jour ',
+                            style: Theme.of(context).textTheme.labelMedium,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                    items: jour
+                        .map((String item) => DropdownMenuItem<String>(
+                      value: item,
+                      child: Center(
+                        child: Text(
+                          item,
+                          style :  Theme.of(context).textTheme.labelMedium,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
 
-            Column(children: [
+                        ),
+                      ),
+                    ))
+                        .toList(),
+                    value: selectedJour,
+                    onChanged: (String? value) {
+                      setState(() {
+                        selectedJour = value;
+                      });
+                    },
+                    buttonStyleData: ButtonStyleData(
+                      height: 60,
+                      width: 308,
+                      padding: const EdgeInsets.only(left: 14, right: 14),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Theme.of(context).buttonTheme.colorScheme!.background,
+                        ),
+                        color:Theme.of(context).colorScheme.background,
+                      ),
+                      elevation: 6,
+                    ),
+                    iconStyleData: IconStyleData(
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_outlined,
+                      ),
+                      iconSize: 20,
+                      iconEnabledColor: Theme.of(context).iconTheme.color,
+                      iconDisabledColor: Theme.of(context).iconTheme.color,
+                    ),
+                    dropdownStyleData: DropdownStyleData(
+                      maxHeight: 200,
+                      width: 308,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(14),
+                          color: Theme.of(context).colorScheme.background,
+                          border: Border.all(color: Theme.of(context).buttonTheme.colorScheme!.background)
+                      ),
+                      scrollbarTheme: ScrollbarThemeData(
+                        radius: const Radius.circular(40),
+                        thickness: MaterialStateProperty.all<double>(5),
+                        thumbVisibility: MaterialStateProperty.all<bool>(true),
+                      ),
+                    ),
+                    menuItemStyleData: const MenuItemStyleData(
+                      height: 40,
+                      padding: EdgeInsets.only(left: 14, right: 14),
+                    ),
+                  ),),
+                ), ],
+            ),
+
+            Divider(color: Colors.black, endIndent: 50,indent: 50,thickness: 1,),
+
+
+            Row( mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container( alignment: Alignment.topLeft,padding: EdgeInsets.only(top:20,bottom: 20), child :
+              DropdownButtonHideUnderline(
+                child: DropdownButton2<String>(
+                  isExpanded: true,
+                  hint:  Row(
+                    children: [
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Selectionne le jour ',
+                          style: Theme.of(context).textTheme.labelMedium,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  items: jour
+                      .map((String item) => DropdownMenuItem<String>(
+                    value: item,
+                    child: Center(
+                      child: Text(
+                        item,
+                        style :  Theme.of(context).textTheme.labelMedium,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+
+                      ),
+                    ),
+                  ))
+                      .toList(),
+                  value: selectedJour,
+                  onChanged: (String? value) {
+                    setState(() {
+                      selectedJour = value;
+                    });
+                  },
+                  buttonStyleData: ButtonStyleData(
+                    height: 60,
+                    width: 308,
+                    padding: const EdgeInsets.only(left: 14, right: 14),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: Theme.of(context).buttonTheme.colorScheme!.background,
+                      ),
+                      color:Theme.of(context).colorScheme.background,
+                    ),
+                    elevation: 6,
+                  ),
+                  iconStyleData: IconStyleData(
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_outlined,
+                    ),
+                    iconSize: 20,
+                    iconEnabledColor: Theme.of(context).iconTheme.color,
+                    iconDisabledColor: Theme.of(context).iconTheme.color,
+                  ),
+                  dropdownStyleData: DropdownStyleData(
+                    maxHeight: 200,
+                    width: 308,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Theme.of(context).colorScheme.background,
+                        border: Border.all(color: Theme.of(context).buttonTheme.colorScheme!.background)
+                    ),
+                    scrollbarTheme: ScrollbarThemeData(
+                      radius: const Radius.circular(40),
+                      thickness: MaterialStateProperty.all<double>(5),
+                      thumbVisibility: MaterialStateProperty.all<bool>(true),
+                    ),
+                  ),
+                  menuItemStyleData: const MenuItemStyleData(
+                    height: 40,
+                    padding: EdgeInsets.only(left: 14, right: 14),
+                  ),
+                ),),
+              ), ],
+          ),
+
+
+          Column(children: [
               Container(
                   padding: EdgeInsets.only(top: 20),
                   child: Form(
@@ -218,8 +400,15 @@ class _premDemandeState extends State<premDemande> {
               height: 69,
               child: ElevatedButton(
 
-                onPressed: () {
-                  FirebaseFirestore.instance.collection('1erdemande').add({'matiere' : selectedMatiere.toString(),'probleme' : problemecontroler.value.text,'chapitre': chapitrecontroller.value.text});
+                onPressed: () async {
+                  FirebaseFirestore.instance.collection('demande').doc(user!.uid).set({
+                    'name': user!.displayName,
+                    'email': user!.email,
+                    'uid': user!.uid,
+                    'chapitre': chapitrecontroller.text,
+                    'demande' : problemecontroler.text,'jour' : selectedJour.toString(),'Matière' : selectedMatiere.toString(),});
+                  problemecontroler.clear();
+                  chapitrecontroller.clear();
                   Navigator.push(context, MaterialPageRoute(builder: (context) => NotifScreen()));},
                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF387CFF),elevation: 6,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
                 child: Text(

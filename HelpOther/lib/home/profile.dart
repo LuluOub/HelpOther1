@@ -39,32 +39,32 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
      return Scaffold(
 
-       backgroundColor: const Color(0xFFFCFFFC),
+       backgroundColor: Theme.of(context).colorScheme.background,
 
          body: SingleChildScrollView(
            child: Column( mainAxisAlignment: MainAxisAlignment.center,
            children: [
 
-         Row( mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-         Container( padding: EdgeInsets.only(top: 100,bottom: 20),
-         child:
-         TextAvatar(
-           shape: Shape.Circular,
-           size: 155,
-           textColor: Colors.white,
-           fontSize: 60,
-           fontWeight: FontWeight.bold,
-           upperCase: true,
-           backgroundColor: Colors.blue,
-           numberLetters: 1,
-           text: "${user!.displayName}",
-              )
-            )
-          ]
-         ),
+             Row( mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Container( padding: EdgeInsets.only(top: 100,bottom: 20),
+                       child:
+                       TextAvatar(
+                         shape: Shape.Circular,
+                         size: 155,
+                         textColor: Colors.white,
+                         fontSize: 60,
+                         fontWeight: FontWeight.bold,
+                         upperCase: true,
+                         backgroundColor: Colors.blue,
+                         numberLetters: 1,
+                         text: "${user!.displayName}",
+                       )
+                   )
+                 ]
+             ),
 
-         Container(padding: EdgeInsets.only(top: 20),child: Divider(color: Colors.black,endIndent: 50,indent: 50,thickness: 1,),),
+         Container(padding: EdgeInsets.only(top: 20),child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 50,indent: 50,thickness: 1,),),
 
 
          Row( mainAxisAlignment: MainAxisAlignment.center,
@@ -73,13 +73,13 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                child: ElevatedButton.icon(
                  icon: Padding(
                    padding: EdgeInsets.zero, // add padding to adjust icon
-                   child:  Image(image: ExactAssetImage('images/user.png'),width: 30,height: 30,),
+                   child:  Image(image: ExactAssetImage('images/user.png'),width: 30,height: 30,color: Theme.of(context).iconTheme.color),
                  ),
                  label: Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
-                     Text('Votre compte',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
-                     Icon(Icons.arrow_forward_ios)
+                     Text('Votre compte',style: Theme.of(context).textTheme.labelSmall),
+                     Icon(Icons.arrow_forward_ios,color:Theme.of(context).iconTheme.color ,)
                    ],
                  ),
                  onPressed: () {
@@ -87,11 +87,11 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    print('Button Pressed');
                  },
                  style: ElevatedButton.styleFrom(
-                   backgroundColor: Colors.white,
-                   foregroundColor: Colors.black,
+                   backgroundColor: Theme.of(context).colorScheme.background,
+                   foregroundColor: Theme.of(context).colorScheme.secondary,
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0),
-                     side: BorderSide(color: Color(0xFF2541B2)),
+                     side: BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background),
                    ),
                  ),
                ),
@@ -105,13 +105,13 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                child: ElevatedButton.icon(
                  icon: Padding(
                    padding: EdgeInsets.zero, // add padding to adjust icon
-                   child:  Image(image: ExactAssetImage('images/settings.png'),width: 30,height: 30,),
+                   child:  Image(image: ExactAssetImage('images/settings.png'),width: 30,height: 30,color: Theme.of(context).iconTheme.color,),
                  ),
                  label: Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
-                     Text('Reglages',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
-                     Icon(Icons.arrow_forward_ios)
+                     Text('Reglages',style: Theme.of(context).textTheme.labelSmall,),
+                     Icon(Icons.arrow_forward_ios,color:Theme.of(context).iconTheme.color)
                    ],
                  ),
                  onPressed: () {
@@ -119,11 +119,11 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    print('Button Pressed');
                  },
                  style: ElevatedButton.styleFrom(
-                   backgroundColor: Colors.white,
-                   foregroundColor: Colors.black,
+                   backgroundColor: Theme.of(context).colorScheme.background,
+                   foregroundColor: Theme.of(context).colorScheme.secondary,
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0),
-                     side: BorderSide(color: Color(0xFF2541B2)),
+                     side: BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background),
                    ),
                  ),
                ),
@@ -137,13 +137,13 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                child: ElevatedButton.icon(
                  icon: Padding(
                    padding: EdgeInsets.zero, // add padding to adjust icon
-                   child:  Image(image: ExactAssetImage('images/probleme.png'),width: 30,height: 30,),
+                   child:  Image(image: ExactAssetImage('images/probleme.png'),width: 30,height: 30,color: Theme.of(context).iconTheme.color,),
                  ),
                  label: Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
-                     Text('Un problème ?',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
-                     Icon(Icons.arrow_forward_ios)
+                     Text('Un problème ?',style: Theme.of(context).textTheme.labelSmall),
+                     Icon(Icons.arrow_forward_ios,color: Theme.of(context).iconTheme.color,)
                    ],
                  ),
                  onPressed: () {
@@ -151,11 +151,11 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    print('Button Pressed');
                  },
                  style: ElevatedButton.styleFrom(
-                   backgroundColor: Colors.white,
-                   foregroundColor: Colors.black,
+                   backgroundColor: Theme.of(context).colorScheme.background,
+                   foregroundColor: Theme.of(context).colorScheme.secondary,
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0),
-                     side: BorderSide(color: Color(0xFF2541B2)),
+                     side: BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background),
                    ),
                  ),
                ),
@@ -168,13 +168,13 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    child: ElevatedButton.icon(
                      icon: Padding(
                        padding: EdgeInsets.zero, // add padding to adjust icon
-                       child:  Image(image: ExactAssetImage('images/store.png'),width: 30,height: 30,),
+                       child:  Image(image: ExactAssetImage('images/store.png'),width: 30,height: 30,color: Theme.of(context).iconTheme.color,),
                      ),
                      label: Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                        children: [
-                         Text('Boutique',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
-                         Icon(Icons.arrow_forward_ios)
+                         Text('Boutique',style: Theme.of(context).textTheme.labelSmall),
+                         Icon(Icons.arrow_forward_ios,color:  Theme.of(context).iconTheme.color)
                        ],
                      ),
                      onPressed: () {
@@ -182,11 +182,11 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                        print('Button Pressed');
                      },
                      style: ElevatedButton.styleFrom(
-                       backgroundColor: Colors.white,
-                       foregroundColor: Colors.black,
+                       backgroundColor: Theme.of(context).colorScheme.background,
+                       foregroundColor: Theme.of(context).colorScheme.secondary,
                        shape: RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(10.0),
-                         side: BorderSide(color: Color(0xFF2541B2)),
+                         side: BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background),
                        ),
                      ),
                    ),
@@ -199,13 +199,13 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                    child: ElevatedButton.icon(
                      icon: Padding(
                        padding: EdgeInsets.zero, // add padding to adjust icon
-                       child:  Image(image: ExactAssetImage('images/avis.png'),width: 30,height: 30,),
+                       child:  Image(image: ExactAssetImage('images/avis.png'),width: 30,height: 30,color: Theme.of(context).iconTheme.color),
                      ),
                      label: Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                        children: [
-                         Text('Un avis ?',style: GoogleFonts.montserrat(color:Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
-                         Icon(Icons.arrow_forward_ios)
+                         Text('Un avis ?',style: Theme.of(context).textTheme.labelSmall,),
+                         Icon(Icons.arrow_forward_ios, color: Theme.of(context).iconTheme.color)
                        ],
                      ),
                      onPressed: () {
@@ -213,11 +213,11 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
                        print('Button Pressed');
                      },
                      style: ElevatedButton.styleFrom(
-                       backgroundColor: Colors.white,
-                       foregroundColor: Colors.black,
+                       backgroundColor: Theme.of(context).colorScheme.background,
+                       foregroundColor: Theme.of(context).colorScheme.secondary,
                        shape: RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(10.0),
-                         side: BorderSide(color: Color(0xFF2541B2)),
+                         side: BorderSide(color: Theme.of(context).buttonTheme.colorScheme!.background),
                        ),
                      ),
                    ),

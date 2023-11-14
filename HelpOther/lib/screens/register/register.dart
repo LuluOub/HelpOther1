@@ -49,20 +49,15 @@ class RegisterScreenState extends State<RegisterScreen> {
     return
       Scaffold(
 
-        backgroundColor: const Color(0xFFFCFFFC),
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           padding: const EdgeInsets.only(left: 24, right: 24,),
           child: Column( mainAxisAlignment: MainAxisAlignment.center,
             children :[ Container(height: 20,),
               Row(children: [Center(child :Container(padding: const EdgeInsets.only(top: 70),width: 350, child: Text( "Avant toutes choses il faut que tu t’inscrive !",
-                style: GoogleFonts.breeSerif(
-                  color: Color(0xFF323131),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-                textAlign: TextAlign.center
-                ,)),)],),
-              Container(padding:EdgeInsets.only(top: 20),child: Divider(color: Colors.black,endIndent: 20,indent: 20,thickness: 2,),),
+                style:Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,)),)],),
+
+              Container(padding:EdgeInsets.only(top: 20),child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 20,indent: 20,thickness: 2,),),
 
 
               Column( children : [
@@ -73,18 +68,18 @@ class RegisterScreenState extends State<RegisterScreen> {
 
                           Container(margin: EdgeInsets.only(top: 16), height: 77,width: 338,
                             child: TextFormField(
-                              cursorColor: Colors.blueAccent,
-                              style: GoogleFonts.aBeeZee(color: Color(0xFF1E1E1E),fontSize: 20,fontStyle: FontStyle.italic),
+                              cursorColor: Theme.of(context).colorScheme.primary,
+                              style: Theme.of(context).textTheme.labelMedium,
                               controller: nameController,
 
                               decoration: InputDecoration(hintText: 'Rentre ton pseudo !',
                                 prefixIcon:   Padding(
                                   padding: EdgeInsets.only(left : 15,right: 15,bottom: 2), // add padding to adjust icon
-                                  child:  Image(image: ExactAssetImage('images/user.png'),width: 40,height: 30,),
+                                  child:  Image(image: ExactAssetImage('images/user.png'),width: 40,height: 30,color: Theme.of(context).iconTheme.color),
                                 ),
-                                  focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: Color(0xFF387CFF),width: 1.5,),),
-                                  enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color: Color(0xFF387CFF), width:1.5,),),
-                                  hintStyle: GoogleFonts.aBeeZee(color: Color(0xFF1E1E1E),fontSize: 20,fontStyle: FontStyle.italic),),
+                                  focusedBorder: OutlineInputBorder( borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: Theme.of(context).colorScheme.primary,width: 1.5,),),
+                                  enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide:  BorderSide(color: Theme.of(context).colorScheme.primary, width:1.5,),),
+                                  hintStyle:  Theme.of(context).textTheme.labelMedium,),
                               validator: (value) => value != null && value.length < 6
                                   ? "Rentre un pseudo avec au moins 6 lettres !"
                                   : null,
@@ -194,11 +189,11 @@ class RegisterScreenState extends State<RegisterScreen> {
 
                     if (_formKey.currentState?.validate() == true) {
                       setState(() => loading = true);
-                      var Name = nameController.value.text;
+                      var name = nameController.value.text;
                       var email = emailController.value.text;
                       var password = passwordController.value.text;
 
-                      dynamic result = await _auth.registerWithEmailAndPassword(Name,email,password);
+                      dynamic result = await _auth.registerWithEmailAndPassword(name,email,password);
                       Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionScreen()));
                       if (result == false) {
                         setState(() {
@@ -211,16 +206,9 @@ class RegisterScreenState extends State<RegisterScreen> {
                     child:  Text("S'inscire !",style: GoogleFonts.bowlbyOneSc(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 15),),),
 
               ),
-
-
-
-
-
             ],
           ),
         ),
       );
-
-
   }
 }

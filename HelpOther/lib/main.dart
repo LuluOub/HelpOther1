@@ -9,6 +9,8 @@ import 'package:helpother/home/splashscreen_warpper.dart';
 import 'package:helpother/screens/question.dart';
 
 import 'package:helpother/services/authentication.dart';
+import 'package:helpother/theme/dark_theme.dart';
+import 'package:helpother/theme/light_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 
@@ -46,9 +48,8 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashScreenWrapper(),
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: lightTheme,
+        darkTheme: darkTheme,
       ),
     );
   }

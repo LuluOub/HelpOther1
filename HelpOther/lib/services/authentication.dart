@@ -11,7 +11,6 @@ class AuthenticationService {
     return user != null ? AppUser(user.uid) : null;
   }
 
-
   Stream<AppUser?> get user {
     return _auth.authStateChanges().map(_userFromFirebaseUser);
   }
@@ -19,7 +18,7 @@ class AuthenticationService {
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
       UserCredential result =
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
+        await _auth.signInWithEmailAndPassword(email: email, password: password);
       User? user = result.user;
       return _userFromFirebaseUser(user);
     } catch (exception) {
@@ -31,12 +30,13 @@ class AuthenticationService {
   Future registerWithEmailAndPassword(String name, String email, String password) async {
     try {
       UserCredential result =
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
+        await _auth.createUserWithEmailAndPassword(email: email, password: password);
       User? user = result.user;
+      user?.updateProfile(displayName: name);
       if (user == null) {
         throw Exception("No user found");
       } else {
-        await DatabaseService(user.uid).saveUser(name, email,);
+        await DatabaseService(user.uid).saveUser(name, email,"etudiant");
 
         return _userFromFirebaseUser(user);
       }
