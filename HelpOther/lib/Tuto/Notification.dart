@@ -16,6 +16,7 @@ class _NotifScreenState extends State<NotifScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
 
       body: SingleChildScrollView(
         child: Column(
@@ -24,24 +25,16 @@ class _NotifScreenState extends State<NotifScreen> {
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( width: 370, padding: EdgeInsets.only(top: 150),
-                  child: Text('Bien jouée ta demande vient d’être envoyé !',style: GoogleFonts.breeSerif(
-                  color: Color(0xFF323131),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ), textAlign: TextAlign.center,),),
+                  child: Text('Avant tout pour pouvoir te contacter !',style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),),
               ],
             ),
 
 
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container( width: 370, padding: EdgeInsets.only(top: 50),
-                  child: Text('On va te contacter d’içi peu n’oublie pas d’activer les notifications !',
-                    style: GoogleFonts.breeSerif(
-                  color: Color(0xFF323131),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ), textAlign: TextAlign.center,),),
+                Container( width: 370, padding: EdgeInsets.only(top: 20),
+                  child: Text('N’oublie pas d’activer les notifications !',
+                    style: Theme.of(context).textTheme.titleMedium, textAlign: TextAlign.center,),),
               ],
             ),
 
@@ -53,7 +46,7 @@ class _NotifScreenState extends State<NotifScreen> {
                       Row( mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(width: 239, height: 181, margin: EdgeInsets.only(top: 50),decoration: ShapeDecoration(
-                    color: Color(0x7FD9D9D9),
+                    color: Theme.of(context).colorScheme.tertiary,
                     shape: RoundedRectangleBorder(
                           side: BorderSide(width: 1),
                           borderRadius: BorderRadius.circular(10),
@@ -64,11 +57,7 @@ class _NotifScreenState extends State<NotifScreen> {
                       Row(mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container( margin: EdgeInsets.only(top: 80), width: 231,
-                            child: Text('Veux tu recevoir les notifications ?',style: GoogleFonts.breeSerif(
-                              color: Color(0xFF323131),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ), textAlign: TextAlign.center,)
+                            child: Text('Veux tu recevoir les notifications ?',style: Theme.of(context).textTheme.titleMedium, textAlign: TextAlign.center,)
                             ),
                         ],
                       ),
@@ -82,9 +71,9 @@ class _NotifScreenState extends State<NotifScreen> {
                             margin: EdgeInsets.only(top: 180,left: 87),
                             width: 118,
                             height: 50,
-                            child: ElevatedButton( style: ElevatedButton.styleFrom(backgroundColor:Color(0x3F00FF28),elevation: 0, shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(9) ),),),
+                            child: ElevatedButton( style: ElevatedButton.styleFrom(backgroundColor:Color(0xFF8FF7A7),elevation: 0, shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(9) ),),),
                               onPressed: () async { await FirebaseApi().initNotifications(); }, child: Text('Accepter',style: GoogleFonts.breeSerif(
-                                color: Color(0xFF323131),
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ), textAlign: TextAlign.center),
@@ -106,7 +95,7 @@ class _NotifScreenState extends State<NotifScreen> {
                             width: 118,
                             height: 50,
                             decoration: ShapeDecoration(
-                              color: Color(0x3FFF0000),
+                              color: Color(0xFFE01C15),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(bottomRight: Radius.circular(9)),
                               ),
@@ -121,7 +110,7 @@ class _NotifScreenState extends State<NotifScreen> {
                         children: [
                           Container( margin: EdgeInsets.only(top: 194,right: 120),
                             child: Text('Refuser',style: GoogleFonts.breeSerif(
-                              color: Color(0xFF323131),
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ), textAlign: TextAlign.center),
@@ -187,11 +176,11 @@ class _NotifScreenState extends State<NotifScreen> {
 
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => menu()));},
-                style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF387CFF),elevation: 6,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
+                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary,elevation: 6,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
                 child: Text(
                     "C'est Fait !!",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.bowlbyOneSc(color: Colors.white,fontSize: 16)
+                    style: Theme.of(context).textTheme.labelLarge
                 ),
               ),
             ),

@@ -11,7 +11,7 @@ class DatabaseService {
     FirebaseFirestore.instance.collection("users");
 
   Future<void> saveUser(String name, String email,String role) async {
-    return await userCollection.doc(uid).set({'name': name, 'email': email,'uid':uid,'role':role});
+    return await userCollection.doc(uid).set({'name': name, 'email': email,'role':role});
   }
 
   Future<void> saveToken(String? token) async {
@@ -22,9 +22,8 @@ class DatabaseService {
     var data = snapshot.data();
     if (data == null) throw Exception("user not found");
     return AppUserData(
-      uid: snapshot.id,
+      uid: uid,
       name: data['name'],
-      uid1: uid,
       email: data['email'],
       role : data['role']
     );

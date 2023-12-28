@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:helpother/Chat/List_Discussion.dart';
 
+import '../services/database.dart';
+
 
 class Discussion extends StatefulWidget {
   const Discussion({Key? key}) : super(key: key);
@@ -16,21 +18,32 @@ class Discussion extends StatefulWidget {
 }
 
 class _DiscussionState extends State<Discussion> {
+  Future<String> firebaseGetData() async {
+    String role;
+    DocumentSnapshot ds =
+    await FirebaseFirestore.instance.collection("users").doc(user?.uid).get();
+    Map<String, dynamic> data = ds.data() as Map<String, dynamic>;
+    print(data["role"] as String);
+    role = data['role'];// check if it null or not
+    return role;
 
+  }
+  var role1;
   firebase_auth.User? user;
 
   @override
   void initState() {
     super.initState();
     this.user = firebase_auth.FirebaseAuth.instance.currentUser;
+    firebaseGetData().then((String string) => role1 = string);
   }
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
+    final database = DatabaseService(user!.uid);
+    Stream userId = FirebaseFirestore.instance.collection('users').doc(user?.uid).snapshots();
     return Scaffold(
-
 
       backgroundColor: Theme.of(context).colorScheme.background,
 
@@ -84,7 +97,7 @@ class _DiscussionState extends State<Discussion> {
         if (snapshot.connectionState == ConnectionState.waiting){
           return const Text('Waiting...');
         }
-        return ListView( padding: EdgeInsets.only(left: 16,right: 16,top: 10),
+        return ListView( padding: EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 20),
           children:
 
 
@@ -98,7 +111,7 @@ class _DiscussionState extends State<Discussion> {
 
   Widget _buildUserListItem(DocumentSnapshot document){
     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-    if(_auth.currentUser!.email != data['email']){
+    if(data['role'] != role1 && user?.uid != data['uid']){
       return  ListTile(
 
 

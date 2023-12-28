@@ -59,15 +59,8 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
               Center(
                 child :
                 Container(
-                    padding: const EdgeInsets.only(top: 70),width: 350, child: Text("Ca fait plaisir de te revoir !",
+                    padding: const EdgeInsets.only(top: 150),width: 350, child: Text("Connecte toi !",
                   style: Theme.of(context).textTheme.titleLarge,textAlign: TextAlign.center,)),)],),
-          Row( mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child :
-                Container(
-                    padding: const EdgeInsets.only(top: 18),width: 300, child: Text("Connecte-toi !", style:  Theme.of(context).textTheme.titleLarge,textAlign: TextAlign.center,)),)],),
-
           Container(padding: EdgeInsets.only(top: 10) ,child: Divider(color: Theme.of(context).colorScheme.secondary, endIndent: 20,indent: 20, thickness: 2)),
 
 

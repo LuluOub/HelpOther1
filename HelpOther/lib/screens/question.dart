@@ -78,6 +78,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
 
     return Scaffold(
+  backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Column( mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -86,18 +87,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   children: [
                     Container( padding: EdgeInsets.only(top: 60),width: 333,
                       child: Text('Avant de commencer on va te poser quelques questions !',
-                        style: GoogleFonts.breeSerif(
-                      color: Color(0xFF323131),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ), textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,
                     ),),
                   ],
                 ),
 
 
 
-            Container( padding: EdgeInsets.only(top: 10),child: Divider(color: Colors.black,thickness: 1,indent: 40,endIndent: 40,)),
+            Container( padding: EdgeInsets.only(top: 10),child: Divider(color:Theme.of(context).colorScheme.secondary,thickness: 1,indent: 40,endIndent: 40,)),
 
 
             Row( mainAxisAlignment: MainAxisAlignment.center,
@@ -105,11 +102,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               Container( padding: EdgeInsets.only(top: 10),
                 child: Text(
                   'Quel étude tu fait ?',
-                style: GoogleFonts.breeSerif(
-                color: Color(0xFF323131),
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-              ),),)
+                style: Theme.of(context).textTheme.titleMedium,
+              ),)
             ],),
 
 
@@ -128,7 +122,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Expanded(
                           child: Text(
                             'Selectionne tes études ',
-                            style: GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                            style: Theme.of(context).textTheme.labelMedium,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -140,7 +134,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       child: Center(
                         child: Text(
                           item,
-                          style : GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                          style : Theme.of(context).textTheme.labelMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -159,9 +153,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: Color(0xFF387CFF),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
-                        color: Color(0xFFFCFFFC),
+                        color: Theme.of(context).colorScheme.background,
                       ),
                       elevation: 6,
                     ),
@@ -170,16 +164,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Icons.keyboard_arrow_down_outlined,
                       ),
                       iconSize: 20,
-                      iconEnabledColor: Colors.black,
-                      iconDisabledColor: Colors.black,
+                      iconEnabledColor: Theme.of(context).iconTheme.color,
+                      iconDisabledColor: Theme.of(context).iconTheme.color,
                     ),
                     dropdownStyleData: DropdownStyleData(
                       maxHeight: 200,
                       width: 308,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                          color: Color(0xFFFCFFFC),
-                          border: Border.all(color: Color(0xFF387CFF))
+                          color: Theme.of(context).colorScheme.background,
+                          border: Border.all(color: Theme.of(context).colorScheme.primary)
                       ),
                       scrollbarTheme: ScrollbarThemeData(
                         radius: const Radius.circular(40),
@@ -195,18 +189,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 ), ],
             ),
 
-            Container(child: Divider(color: Colors.black,endIndent: 100,indent: 100,thickness: 1,),),
+            Container(child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 100,indent: 100,thickness: 1,),),
 
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( padding: EdgeInsets.only(top: 10),
                   child: Text(
                     'Dans quelle classe est-tu ?',
-                    style: GoogleFonts.breeSerif(
-                      color: Color(0xFF323131),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),),)
+                    style: Theme.of(context).textTheme.titleMedium),)
               ],),
 
 
@@ -224,7 +214,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Expanded(
                           child: Text(
                             'Selectionne ta classe ',
-                            style: GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                            style: Theme.of(context).textTheme.labelMedium,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -236,7 +226,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       child: Center(
                         child: Text(
                           item,
-                          style : GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                          style : Theme.of(context).textTheme.labelMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -255,9 +245,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: Color(0xFF387CFF),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
-                        color: Color(0xFFFCFFFC),
+                        color: Theme.of(context).colorScheme.background,
                       ),
                       elevation: 6,
                     ),
@@ -266,16 +256,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Icons.keyboard_arrow_down_outlined,
                       ),
                       iconSize: 20,
-                      iconEnabledColor: Colors.black,
-                      iconDisabledColor: Colors.black,
+                      iconEnabledColor: Theme.of(context).iconTheme.color,
+                      iconDisabledColor: Theme.of(context).iconTheme.color,
                     ),
                     dropdownStyleData: DropdownStyleData(
                       maxHeight: 200,
                       width: 308,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                          color: Color(0xFFFCFFFC),
-                          border: Border.all(color: Color(0xFF387CFF))
+                          color: Theme.of(context).colorScheme.background,
+                          border: Border.all(color: Theme.of(context).colorScheme.primary)
                       ),
                       scrollbarTheme: ScrollbarThemeData(
                         radius: const Radius.circular(40),
@@ -292,7 +282,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             ),
 
 
-            Container(child: Divider(color: Colors.black,endIndent: 100,indent: 100,thickness: 1,),),
+            Container(child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 100,indent: 100,thickness: 1,),),
 
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -300,11 +290,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   padding: EdgeInsets.only(top: 10),
                   child: Text(
                     'Dans quelle matière veux-tu de l’aide ?', textAlign: TextAlign.center,
-                    style: GoogleFonts.breeSerif(
-                      color: Color(0xFF323131),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),),)
+                    style: Theme.of(context).textTheme.titleMedium,),)
               ],),
 
             Row( mainAxisAlignment: MainAxisAlignment.center,
@@ -321,7 +307,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Expanded(
                           child: Text(
                             'Selectionne une matière ',
-                            style: GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                            style: Theme.of(context).textTheme.labelMedium,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -333,7 +319,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       child: Center(
                         child: Text(
                           item,
-                          style : GoogleFonts.aBeeZee(color: Color(0xFF666666),fontSize: 15),
+                          style : Theme.of(context).textTheme.labelMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -352,9 +338,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: Color(0xFF387CFF),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
-                        color: Color(0xFFFCFFFC),
+                        color:Theme.of(context).colorScheme.background,
                       ),
                       elevation: 6,
                     ),
@@ -363,16 +349,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Icons.keyboard_arrow_down_outlined,
                       ),
                       iconSize: 20,
-                      iconEnabledColor: Colors.black,
-                      iconDisabledColor: Colors.black,
+                      iconEnabledColor: Theme.of(context).iconTheme.color,
+                      iconDisabledColor: Theme.of(context).iconTheme.color,
                     ),
                     dropdownStyleData: DropdownStyleData(
                       maxHeight: 200,
                       width: 308,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                          color: Color(0xFFFCFFFC),
-                          border: Border.all(color: Color(0xFF387CFF))
+                          color: Theme.of(context).colorScheme.background,
+                          border: Border.all(color:Theme.of(context).colorScheme.primary)
                       ),
                       scrollbarTheme: ScrollbarThemeData(
                         radius: const Radius.circular(40),
@@ -388,7 +374,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 ), ],
             ),
 
-            Container(child: Divider(color: Colors.black,endIndent: 100,indent: 100,thickness: 1,),),
+            Container(child: Divider(color: Theme.of(context).colorScheme.secondary,endIndent: 100,indent: 100,thickness: 1,),),
 
             Container(
 
@@ -398,13 +384,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
               child: ElevatedButton(
 
                 onPressed: () {
-                  FirebaseFirestore.instance.collection('demande').add({'matiere' : selectedMatiere.toString(),'Classe' : selectedClasse.toString(),'etude': selectedValue.toString()});
                   Navigator.push(context, MaterialPageRoute(builder: (context) => BienvenueScreen()));},
-                style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF387CFF),elevation: 6,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
+                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary,elevation: 6,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
                 child: Text(
                     "C'est Fait !",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.bowlbyOneSc(color: Colors.white,fontSize: 16)
+                    style: Theme.of(context).textTheme.labelLarge
                 ),
               ),
             ),

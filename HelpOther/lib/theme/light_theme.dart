@@ -59,5 +59,6 @@ ThemeData lightTheme = ThemeData(
       primary: Color(0xFF2541B2),
       secondary: Colors.black,
       tertiary: Colors.blueGrey[700]
+
   ),
 );

@@ -1,10 +1,17 @@
+import 'dart:async';
 import 'package:checkmark/checkmark.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:helpother/common/pub.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:helpother/home/splashscreen_warpper.dart';
+
+import '../profile/mdpchange.dart';
+import '../services/authentication.dart';
+
 
 
 class Create extends StatefulWidget {
@@ -16,34 +23,43 @@ class Create extends StatefulWidget {
 
 class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
 
-  firebase_auth.User? user;
+  firebase_auth.User? users;
+  final AuthenticationService _auth = AuthenticationService();
+  Future<String> firebaseGetData() async {
+    String role;
+    DocumentSnapshot ds =
+    await FirebaseFirestore.instance.collection("users").doc(users?.uid).get();
+    Map<String, dynamic> data = ds.data() as Map<String, dynamic>;
+    print(data["role"] as String);
+    role = data['role'];// check if it null or not
+    return role;
 
-  
+  }
 
+
+
+
+
+
+  late String role1;
   @override
   void initState() {
     super.initState();
-    this.user = firebase_auth.FirebaseAuth.instance.currentUser;
-}
+    this.users = firebase_auth.FirebaseAuth.instance.currentUser;
+    firebaseGetData().then((String string) => role1 = string);
+  }
+  
+
+
+
   final _demandekey = GlobalKey<FormState>();
   String error = '';
   bool checked = false;
-
-
-
-
-
   TextEditingController textarea = TextEditingController();
-
-
-
   final chapitreController = TextEditingController();
   final problemeController = TextEditingController();
 
-
-
   void dispose() {
-
     chapitreController.dispose();
     problemeController.dispose();
     super.dispose();
@@ -55,12 +71,10 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
       error = '';
       chapitreController.text = '';
       problemeController.text = '';
-
     });
-
-
   }
-   String? selectedJour;
+
+  String? selectedJour;
    String? selectedValue;
 
   final List<String> items =[
@@ -80,11 +94,13 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
     'Samedi',
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
-     return Scaffold( backgroundColor: Theme.of(context).colorScheme.background,
+
+   
+    return Scaffold(
+
+       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView( padding: EdgeInsets.only(left: 24, right: 24,), child : Column(
         children: [
 
@@ -337,10 +353,11 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
             child: ElevatedButton(onPressed: () async {
 
 
-                      FirebaseFirestore.instance.collection('demande').doc(user!.uid).set({
-                        'name': user!.displayName,
-                        'email': user!.email,
-                        'uid': user!.uid,
+                      FirebaseFirestore.instance.collection('demande').doc(users!.uid).set({
+                        'name': users!.displayName,
+                        'email': users!.email,
+                        'uid': users!.uid,
+                        'role': role1,
                         'chapitre': chapitreController.text,'demande' : problemeController.text,'jour' : selectedJour.toString(),'Matière' : selectedValue.toString(),});
                       problemeController.clear();
                       chapitreController.clear();
@@ -361,8 +378,8 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
               backgroundColor:  Theme.of(context).buttonTheme.colorScheme!.background,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
             child:  Text("Envoyer ! ",style: Theme.of(context).textTheme.labelLarge,),),),
-
        ],),),
+
 
 
      );
@@ -375,7 +392,11 @@ class _CreateState extends State<Create> with SingleTickerProviderStateMixin {
   
   void onAdLoaded(InterstitialAd ad) {
   }
+
+
 }
+
+
 
 
 
