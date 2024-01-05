@@ -6,7 +6,7 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   buttonTheme: ButtonThemeData(
     colorScheme: ColorScheme.dark(
-      background: Color(0xFF20A4F3),
+      background: Color(0xFF2176ff),
       primary: Colors.white
     )
   ),
@@ -40,23 +40,23 @@ ThemeData darkTheme = ThemeData(
       color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold
     ),
     headlineMedium: GoogleFonts.montserrat(
-      color: Color(0xFF20A4F3), fontWeight: FontWeight.bold, fontSize: 15
+      color: Color(0xFF2176ff), fontWeight: FontWeight.bold, fontSize: 15
     ),
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: Color(0xFF161717),
-    selectedItemColor: Color(0xFF20A4F3),
+    selectedItemColor: Color(0xFF2176ff),
     unselectedItemColor: Color(0xF030FF3),
     elevation: 3,
 
     selectedIconTheme: IconThemeData(
-      color: Color(0xFF20A4F3),
+      color: Color(0xFF2176ff),
 
     ),
   ),
   colorScheme: ColorScheme.dark(
   background : Color(0xFF171819),
-    primary: Color(0xFF20A4F3),
+    primary: Color(0xFF2176ff),
     secondary: Colors.white,
     tertiary: Colors.blueGrey[700]
   ),

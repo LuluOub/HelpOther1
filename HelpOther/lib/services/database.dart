@@ -10,8 +10,8 @@ class DatabaseService {
   final CollectionReference<Map<String, dynamic>> userCollection =
     FirebaseFirestore.instance.collection("users");
 
-  Future<void> saveUser(String name, String email,String role) async {
-    return await userCollection.doc(uid).set({'name': name, 'email': email,'role':role});
+  Future<void> saveUser(String name, String email,String role,int HelpCoin) async {
+    return await userCollection.doc(uid).set({'name': name, 'email': email,'role':role,'helpcoin':HelpCoin});
   }
 
   Future<void> saveToken(String? token) async {

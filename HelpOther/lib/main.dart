@@ -4,10 +4,7 @@ import 'package:helpother/Tuto/Notification.dart';
 import 'package:helpother/firebase_options.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter/material.dart';
-import 'package:helpother/home/BottomNavBar.dart';
 import 'package:helpother/home/splashscreen_warpper.dart';
-import 'package:helpother/screens/question.dart';
-
 import 'package:helpother/services/authentication.dart';
 import 'package:helpother/theme/dark_theme.dart';
 import 'package:helpother/theme/light_theme.dart';

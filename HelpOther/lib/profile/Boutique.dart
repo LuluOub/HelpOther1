@@ -28,7 +28,7 @@ class _CreditsState extends State<Credits> {
             Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( padding: EdgeInsets.only(top: 40),
-                  child: Text('Nos Crédits :', style: Theme.of(context).textTheme.titleLarge,),
+                  child: Text('La boutique :', style: Theme.of(context).textTheme.titleLarge,),
                 ),
               ],
             ),
@@ -41,14 +41,7 @@ class _CreditsState extends State<Credits> {
             Row(
               children: [
                 Container( padding: EdgeInsets.only(top: 40,left: 50),
-                  child: Text('- Lucas Oubaiche', style: Theme.of(context).textTheme.titleMedium),),
-              ],
-            ),
-            Row(
-              children: [
-                Container( padding: EdgeInsets.only(top: 40,left: 50),
-                  child: Text('Et voila..', style: Theme.of(context).textTheme.titleMedium),),
-
+                  child: Text('A venir !', style: Theme.of(context).textTheme.titleMedium),),
               ],
             ),
 

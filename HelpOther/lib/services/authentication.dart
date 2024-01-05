@@ -36,7 +36,7 @@ class AuthenticationService {
       if (user == null) {
         throw Exception("No user found");
       } else {
-        await DatabaseService(user.uid).saveUser(name,email,'eleve');
+        await DatabaseService(user.uid).saveUser(name,email,'eleve',50);
 
         return _userFromFirebaseUser(user);
       }

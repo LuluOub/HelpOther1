@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:colorize_text_avatar/colorize_text_avatar.dart';
 import 'package:helpother/profile/Contact.dart';
-import 'package:helpother/profile/Credit.dart';
+import 'package:helpother/profile/Boutique.dart';
 import 'package:helpother/profile/Reglages.dart';
 import 'package:helpother/profile/compte.dart';
 import '../profile/Avis.dart';

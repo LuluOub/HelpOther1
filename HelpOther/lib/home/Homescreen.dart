@@ -1,10 +1,11 @@
+import 'dart:async';
+
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:helpother/home/Discussion.dart';
-
-
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -16,14 +17,26 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   firebase_auth.User? user;
 
+
+
+  void getdata() async{
+    var vari = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(user?.uid)
+        .get();
+
+    setState (() {
+      print(vari.data()!['helpcoin']);
+      helpcoin = vari.data()!['helpcoin'];
+    });
+  }
+  var helpcoin;
   @override
   void initState() {
     super.initState();
     this.user = firebase_auth.FirebaseAuth.instance.currentUser;
+    getdata();
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +44,17 @@ class _homeState extends State<home> {
 
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
+        appBar: AppBar(actions:[ Row( mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(margin: EdgeInsets.only(left: 10),child: Image.asset('images/helpcoin.png',width: 100,)),
+            Container(child: Text("$helpcoin",style: Theme.of(context).textTheme.labelLarge,)),
+          ],
+        ),],elevation: 0, backgroundColor: Theme.of(context).colorScheme.background,),
         body : Container(
           child: ListView(
             children: [
 
-              Container( width: 372, padding: EdgeInsets.only(top:60),
+              Container( width: 372, padding: EdgeInsets.only(top:40),
 
                 child: Text('Content de te revoir ${user!.displayName} !',
                   style:Theme.of(context).textTheme.titleLarge,  textAlign: TextAlign.center,),
@@ -118,7 +137,7 @@ class _homeState extends State<home> {
 
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => Discussion()));},
-                      style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF2541B2),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
+                      style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).buttonTheme.colorScheme!.background,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),),
                       child: Text(
                           "Allons-y !",
                           textAlign: TextAlign.center,
@@ -139,3 +158,5 @@ class _homeState extends State<home> {
 
   }
 }
+
+
